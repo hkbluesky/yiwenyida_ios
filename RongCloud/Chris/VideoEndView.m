@@ -22,7 +22,7 @@
         
         self=[[[NSBundle mainBundle] loadNibNamed:@"VideoEndView" owner:self options:nil] lastObject];
         
-        self.frame=frame;//这个必须要设置，根据不同平台设置View的大小；
+        self.frame=frame;//这个必须要设置，根据不同平台设置View的大小；啦啦啦
     }
     return self;
 }
