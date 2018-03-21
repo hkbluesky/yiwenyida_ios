@@ -143,7 +143,7 @@
                                                     <action selector="videoStartClick:" destination="qSO-pq-OUd" eventType="touchUpInside" id="4IB-IL-yho"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="And" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tra-XS-D5c">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tra-XS-D5c">
                                                 <rect key="frame" x="204" y="12" width="28" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="CyQ-dq-gZv"/>
@@ -195,7 +195,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYk-l9-mFp" userLabel="Line2">
                                         <rect key="frame" x="8" y="65" width="398" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio  Between" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKo-Sj-AEG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice  Between" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKo-Sj-AEG">
                                                 <rect key="frame" x="0.0" y="12" width="120" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="AkL-Sj-pOL"/>
@@ -226,7 +226,7 @@
                                                     <action selector="audioStartClick:" destination="qSO-pq-OUd" eventType="touchUpInside" id="FdJ-3z-O1q"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="And" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwQ-yT-TfQ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwQ-yT-TfQ">
                                                 <rect key="frame" x="204" y="12" width="28" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="28" id="74Q-Bo-b0b"/>
@@ -311,7 +311,7 @@
                                                     <action selector="messageStartClick:" destination="qSO-pq-OUd" eventType="touchUpInside" id="ozc-xm-Un8"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="And" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZ0-4d-5VK">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZ0-4d-5VK">
                                                 <rect key="frame" x="204" y="12" width="28" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="I6P-9Z-R1t"/>
@@ -434,10 +434,10 @@
                                                     <action selector="videoPriceBtnClick:" destination="qSO-pq-OUd" eventType="touchUpInside" id="0rY-Gx-IWG"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGr-VE-w5g">
-                                                <rect key="frame" x="236" y="12" width="52" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excion/min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGr-VE-w5g">
+                                                <rect key="frame" x="236" y="12" width="76" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="52" id="RML-wz-117"/>
+                                                    <constraint firstAttribute="width" constant="76" id="RML-wz-117"/>
                                                     <constraint firstAttribute="height" constant="21" id="Wq7-ko-XEM"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -490,10 +490,10 @@
                                                     <action selector="audioPriceBtnClick:" destination="qSO-pq-OUd" eventType="touchUpInside" id="Vw4-Nb-7eD"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excoin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw9-Jn-hwp">
-                                                <rect key="frame" x="236" y="12" width="52" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excoin/min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw9-Jn-hwp">
+                                                <rect key="frame" x="236" y="12" width="76" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="52" id="8ZO-5B-1fR"/>
+                                                    <constraint firstAttribute="width" constant="76" id="8ZO-5B-1fR"/>
                                                     <constraint firstAttribute="height" constant="21" id="ruh-8F-H56"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -547,10 +547,10 @@
                                                     <action selector="messagePriceBtnClick:" destination="qSO-pq-OUd" eventType="touchUpInside" id="lLh-Un-B8i"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excoin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ic-xs-qvW">
-                                                <rect key="frame" x="236" y="12" width="52" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excoin/Msg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ic-xs-qvW">
+                                                <rect key="frame" x="236" y="12" width="76" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="52" id="LNf-MX-Gay"/>
+                                                    <constraint firstAttribute="width" constant="76" id="LNf-MX-Gay"/>
                                                     <constraint firstAttribute="height" constant="21" id="TKF-gD-EhP"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
