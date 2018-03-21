@@ -1,2 +1,2 @@
 # 1问1答
-power by Sealtalk from 融云
+powered by Sealtalk from 融云
