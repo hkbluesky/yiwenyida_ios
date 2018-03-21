@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "通话总时长：12分24秒"; ObjectID = "1OE-YO-1FC"; */
+"1OE-YO-1FC.text" = "通话总时长：12分24秒";
+
+/* Class = "UILabel"; text = "计费总额：600爱可币"; ObjectID = "4vI-hW-jtD"; */
+"4vI-hW-jtD.text" = "计费总额：600爱可币";
+
+/* Class = "UILabel"; text = "通话结束"; ObjectID = "6Mz-dY-hXu"; */
+"6Mz-dY-hXu.text" = "通话结束";
+
+/* Class = "UILabel"; text = "计费标准：50爱可币/分钟"; ObjectID = "L6z-Ux-YpE"; */
+"L6z-Ux-YpE.text" = "计费标准：50爱可币/分钟";
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "wqx-wq-p4b"; */
+"wqx-wq-p4b.normalTitle" = "确定";

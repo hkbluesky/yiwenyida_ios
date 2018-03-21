@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="vww-GH-dwk" customClass="VideoEndView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqx-wq-p4b">
+                    <rect key="frame" x="110" y="620" width="194" height="36"/>
+                    <color key="backgroundColor" red="0.99950581790000004" green="0.3312818408" blue="0.32841014860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="5hY-cJ-acg"/>
+                        <constraint firstAttribute="height" constant="36" id="u2a-UM-yOm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="18"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnClick:" destination="vww-GH-dwk" eventType="touchUpInside" id="8B6-JZ-v2w"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通话结束" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mz-dY-hXu">
+                    <rect key="frame" x="148.33333333333334" y="120" width="117.66666666666666" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Oh5-Me-UMa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                    <color key="textColor" red="0.99950581790000004" green="0.3312818408" blue="0.32841014860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通话总时长：12 分 24 秒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OE-YO-1FC">
+                    <rect key="frame" x="122.33333333333331" y="187" width="170" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="计费标准：50 爱可币/分钟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6z-Ux-YpE">
+                    <rect key="frame" x="116.33333333333331" y="215" width="182" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="计费总额：600 爱可币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vI-hW-jtD">
+                    <rect key="frame" x="129" y="243" width="156.33333333333337" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.19597426056861877" green="0.11357439309358597" blue="0.14831084012985229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="L6z-Ux-YpE" firstAttribute="top" secondItem="1OE-YO-1FC" secondAttribute="bottom" constant="10" id="5c8-p7-etc"/>
+                <constraint firstItem="1OE-YO-1FC" firstAttribute="centerX" secondItem="vww-GH-dwk" secondAttribute="centerX" id="6Vk-H4-IeV"/>
+                <constraint firstItem="4vI-hW-jtD" firstAttribute="top" secondItem="L6z-Ux-YpE" secondAttribute="bottom" constant="10" id="6q3-Qc-6c3"/>
+                <constraint firstItem="1OE-YO-1FC" firstAttribute="top" secondItem="6Mz-dY-hXu" secondAttribute="bottom" constant="32" id="EN3-r0-wLN"/>
+                <constraint firstItem="6Mz-dY-hXu" firstAttribute="centerX" secondItem="vww-GH-dwk" secondAttribute="centerX" id="HYH-CH-jU0"/>
+                <constraint firstItem="4vI-hW-jtD" firstAttribute="centerX" secondItem="vww-GH-dwk" secondAttribute="centerX" id="OmQ-kn-vP2"/>
+                <constraint firstItem="S0S-bO-Taa" firstAttribute="trailing" secondItem="wqx-wq-p4b" secondAttribute="trailing" constant="110" id="e8D-fv-fpx"/>
+                <constraint firstItem="6Mz-dY-hXu" firstAttribute="top" secondItem="S0S-bO-Taa" secondAttribute="top" constant="100" id="lkf-Qo-pr4"/>
+                <constraint firstItem="L6z-Ux-YpE" firstAttribute="centerX" secondItem="vww-GH-dwk" secondAttribute="centerX" id="w5P-R6-iba"/>
+                <constraint firstItem="S0S-bO-Taa" firstAttribute="bottom" secondItem="wqx-wq-p4b" secondAttribute="bottom" constant="80" id="yBE-aU-ien"/>
+                <constraint firstItem="wqx-wq-p4b" firstAttribute="leading" secondItem="S0S-bO-Taa" secondAttribute="leading" constant="110" id="zLg-I0-uBH"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="S0S-bO-Taa"/>
+            <connections>
+                <outlet property="btn" destination="wqx-wq-p4b" id="Co3-6J-8ym"/>
+                <outlet property="textLabel" destination="1OE-YO-1FC" id="AJp-vY-Z2K"/>
+                <outlet property="textLabel2" destination="L6z-Ux-YpE" id="RYW-ro-VK5"/>
+                <outlet property="textLabel3" destination="4vI-hW-jtD" id="dgo-G8-cKP"/>
+            </connections>
+            <point key="canvasLocation" x="-202.5" y="-109.5"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,96 @@
+
+/* Class = "UIButton"; normalTitle = "00:00"; ObjectID = "7cR-6V-zfa"; */
+"7cR-6V-zfa.normalTitle" = "00:00";
+
+/* Class = "UILabel"; text = "爱可币"; ObjectID = "9ic-xs-qvW"; */
+"9ic-xs-qvW.text" = "爱可币";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "Ak9-d8-h7c"; */
+"Ak9-d8-h7c.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "个人资料"; ObjectID = "C1j-HS-BHK"; */
+"C1j-HS-BHK.text" = "个人资料";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "F3P-5M-ohf"; */
+"F3P-5M-ohf.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "邀请好友"; ObjectID = "Hp8-NZ-EQH"; */
+"Hp8-NZ-EQH.text" = "邀请好友";
+
+/* Class = "UILabel"; text = "我的信息咨询时间为"; ObjectID = "Jn8-Bw-XqG"; */
+"Jn8-Bw-XqG.text" = "我的信息咨询时间为";
+
+/* Class = "UILabel"; text = "我的语音咨询价格为"; ObjectID = "LKz-6D-d1t"; */
+"LKz-6D-d1t.text" = "我的语音咨询价格为";
+
+/* Class = "UILabel"; text = "我的视频咨询价格为"; ObjectID = "OVJ-cS-EEU"; */
+"OVJ-cS-EEU.text" = "我的视频咨询价格为";
+
+/* Class = "UILabel"; text = "爱可币"; ObjectID = "PGr-VE-w5g"; */
+"PGr-VE-w5g.text" = "爱可币";
+
+/* Class = "UIButton"; normalTitle = "cancel"; ObjectID = "QbJ-T1-pZL"; */
+"QbJ-T1-pZL.normalTitle" = "取消";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "Rvc-LZ-431"; */
+"Rvc-LZ-431.normalTitle" = "0";
+
+/* Class = "UIButton"; normalTitle = "00:00"; ObjectID = "RzZ-ts-4jg"; */
+"RzZ-ts-4jg.normalTitle" = "00:00";
+
+/* Class = "UILabel"; text = "至"; ObjectID = "Tra-XS-D5c"; */
+"Tra-XS-D5c.text" = "至";
+
+/* Class = "UILabel"; text = "至"; ObjectID = "VZ0-4d-5VK"; */
+"VZ0-4d-5VK.text" = "至";
+
+/* Class = "UIButton"; normalTitle = "done"; ObjectID = "Vbb-xm-GUL"; */
+"Vbb-xm-GUL.normalTitle" = "确定";
+
+/* Class = "UIButton"; normalTitle = "24:00"; ObjectID = "Y0X-0G-OkM"; */
+"Y0X-0G-OkM.normalTitle" = "24:00";
+
+/* Class = "UILabel"; text = "我来决定咨询价格"; ObjectID = "ZrB-ll-ccy"; */
+"ZrB-ll-ccy.text" = "我来决定咨询价格";
+
+/* Class = "UILabel"; text = "账号设置"; ObjectID = "b3M-oO-1pv"; */
+"b3M-oO-1pv.text" = "账号设置";
+
+/* Class = "UIButton"; normalTitle = "00:00"; ObjectID = "c4G-jl-kND"; */
+"c4G-jl-kND.normalTitle" = "00:00";
+
+/* Class = "UILabel"; text = "曾律师"; ObjectID = "dDh-Op-i4Z"; */
+"dDh-Op-i4Z.text" = "曾律师";
+
+/* Class = "UILabel"; text = "任何建议"; ObjectID = "fTy-Cc-kjP"; */
+"fTy-Cc-kjP.text" = "任何建议";
+
+/* Class = "UILabel"; text = "我来决定咨询时间"; ObjectID = "g6H-Cc-Cmu"; */
+"g6H-Cc-Cmu.text" = "我来决定咨询时间";
+
+/* Class = "UILabel"; text = "我的语音咨询时间为"; ObjectID = "lKo-Sj-AEG"; */
+"lKo-Sj-AEG.text" = "我的语音咨询时间为";
+
+/* Class = "UILabel"; text = "我的信息咨询价格为"; ObjectID = "mj3-yp-h1D"; */
+"mj3-yp-h1D.text" = "我的信息咨询价格为";
+
+/* Class = "UILabel"; text = "1问1答 版本"; ObjectID = "mkI-HW-g1a"; */
+"mkI-HW-g1a.text" = "1问1答 版本";
+
+/* Class = "UILabel"; text = "我的钱包"; ObjectID = "oxT-II-UXX"; */
+"oxT-II-UXX.text" = "我的钱包";
+
+/* Class = "UILabel"; text = "我的视频咨询时间为"; ObjectID = "pAm-cb-c9e"; */
+"pAm-cb-c9e.text" = "我的视频咨询时间为";
+
+/* Class = "UIButton"; normalTitle = "24:00"; ObjectID = "u0s-2r-oja"; */
+"u0s-2r-oja.normalTitle" = "24:00";
+
+/* Class = "UILabel"; text = "至"; ObjectID = "wwQ-yT-TfQ"; */
+"wwQ-yT-TfQ.text" = "至";
+
+/* Class = "UILabel"; text = "爱可币"; ObjectID = "yw9-Jn-hwp"; */
+"yw9-Jn-hwp.text" = "爱可币";
+
+/* Class = "UIButton"; normalTitle = "24:00"; ObjectID = "ywV-Ty-80t"; */
+"ywV-Ty-80t.normalTitle" = "24:00";

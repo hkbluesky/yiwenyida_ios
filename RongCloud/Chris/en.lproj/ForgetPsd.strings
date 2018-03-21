@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "登陆"; ObjectID = "1tu-43-63Q"; */
+"1tu-43-63Q.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "请发个人身份证明至管理员邮箱moneycall6688@163.com重置密码"; ObjectID = "ZE8-ct-snN"; */
+"ZE8-ct-snN.text" = "Please send personal identity proveto the administrator moneycall6688@163.com to reset the password";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "ei3-z3-wkM"; */
+"ei3-z3-wkM.normalTitle" = "Sign up";
