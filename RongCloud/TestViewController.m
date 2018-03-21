@@ -235,6 +235,8 @@
                         }
                     }];
                     [dataTask resume];
+                }else{
+                    [self alertInvalidNumber];
                 }
                 
             }
@@ -266,6 +268,8 @@
                     }];
                     [dataTask resume];
                     //----------------------------------------------
+                }else{
+                    [self alertInvalidNumber];
                 }
             }
             break;
@@ -293,6 +297,8 @@
                         }
                     }];
                     [dataTask resume];
+                }else{
+                    [self alertInvalidNumber];
                 }
             }
             break;
@@ -471,9 +477,14 @@
 //    [self.titleView resignFirstResponder];
 //}
 - (BOOL)isPureInt:(NSString*)string{
-    NSScanner* scan = [NSScanner scannerWithString:string];
-    int val;
-    return[scan scanInt:&val] && [scan isAtEnd];
+    if([string containsString:@"-"]){
+        return NO;
+    }else{
+        NSScanner* scan = [NSScanner scannerWithString:string];
+        int val;
+        return[scan scanInt:&val] && [scan isAtEnd];
+    }
+    
 }
 -(void)updateButton:(NSNumber *)tag{
     UIButton *button = (UIButton *)[self.view viewWithTag:[tag integerValue]];
@@ -498,7 +509,13 @@
     }else{
         return @"en";
     }
-    
-    
+}
+-(void)alertInvalidNumber{
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"Invalid Number", @"RongCloudKit",nil)
+                                                         message:nil delegate:self
+                                               cancelButtonTitle:NSLocalizedStringFromTable(@"Cancel", @"RongCloudKit",
+                                                                                            nil)
+                                               otherButtonTitles: nil];
+    [alertView show];
 }
 @end

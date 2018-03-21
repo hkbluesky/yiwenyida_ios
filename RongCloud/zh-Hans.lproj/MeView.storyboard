@@ -63,7 +63,7 @@
                                             <constraint firstAttribute="height" constant="57" id="cRJ-VM-nUq"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="我要成为专家答主"/>
+                                        <state key="normal" title="我也成为专家答主"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
