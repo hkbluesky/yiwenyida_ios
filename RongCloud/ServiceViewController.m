@@ -151,11 +151,11 @@
             chatViewController.conversationType = ConversationType_PRIVATE;
             
             chatViewController.targetId = self.targetId;
-            
             [[RCDHttpTool shareInstance] getUserInfoByUserID:userid completion:^(RCUserInfo *user) {
                 __weak typeof(&*self) weakSelf = self;
                 NSString *title = user.name;
                 chatViewController.title = title;
+                chatViewController.userName = title;
                 chatViewController.needPopToRootView = YES;
                 chatViewController.displayUserNameInCell = NO;
                 chatViewController.enableNewComingMessageIcon = YES; //开启消息提醒
