@@ -370,7 +370,7 @@
 #pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.scrollView.contentSize = CGSizeMake(375, 800);
     NSString *p = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getPortraitUri?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
     NSURL *purl = [NSURL URLWithString:p];
     NSURLSession *psession = [NSURLSession sharedSession];
@@ -411,7 +411,17 @@
 }
 #pragma mark - viewWillAppear
 -(void)viewWillAppear:(BOOL)animated{
-    self.scrollView.contentSize = CGSizeMake(375, 800);
+    //更新头像
+    NSString *portraitUrl = [DEFAULTS stringForKey:@"userPortraitUri"];
+    if ([portraitUrl isEqualToString:@""]) {
+        portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
+    }
+    NSURL *iconUrl = [NSURL URLWithString:url];
+    NSData *iconData = [NSData dataWithContentsOfURL:iconUrl];
+    UIImage *iconImage = [UIImage imageWithData:iconData];
+    [self.titleImage setImage:iconImage];
+    
+    
     NSString *urlStr = [NSString stringWithFormat:@"https://ask.vipjingjie.com/moblie/personalAike?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLSession *session = [NSURLSession sharedSession];
