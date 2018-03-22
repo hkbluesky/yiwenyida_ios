@@ -379,7 +379,7 @@
         NSString *result = [res objectForKey:@"result"];
         if([result isEqualToString:@"1"]){
             NSString *portraitUrl = [res objectForKey:@"portraitUri"];
-            [DEFAULTS setObject:url forKey:@"userPortraitUri"];
+            [DEFAULTS setObject:portraitUrl forKey:@"userPortraitUri"];
             [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
             
         }else{
