@@ -416,7 +416,7 @@
     if ([portraitUrl isEqualToString:@""]) {
         portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
     }
-    NSURL *iconUrl = [NSURL URLWithString:url];
+    NSURL *iconUrl = [NSURL URLWithString:portraitUrl];
     NSData *iconData = [NSData dataWithContentsOfURL:iconUrl];
     UIImage *iconImage = [UIImage imageWithData:iconData];
     [self.titleImage setImage:iconImage];
