@@ -179,72 +179,72 @@
   _PhoneNumber = userNameTextField.text;
   userNameTextField.delegate = self;
 
-  RCUnderlineTextField *verificationCodeField =
-      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
+//  RCUnderlineTextField *verificationCodeField =
+//      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
+//
+//  verificationCodeField.backgroundColor = [UIColor clearColor];
+//  verificationCodeField.tag = VerificationCodeFieldTag;
+//  verificationCodeField.attributedPlaceholder = [[NSAttributedString alloc]
+//      initWithString:NSLocalizedStringFromTable(@"Verification Code", @"RongCloudKit",nil)
+//          attributes:@{NSForegroundColorAttributeName : color}];
+//  verificationCodeField.textColor = [UIColor blackColor];
+//  self.view.translatesAutoresizingMaskIntoConstraints = YES;
+//  verificationCodeField.translatesAutoresizingMaskIntoConstraints = NO;
+//  verificationCodeField.adjustsFontSizeToFitWidth = YES;
+//  verificationCodeField.clearButtonMode = UITextFieldViewModeWhileEditing;
+//  verificationCodeField.keyboardType = UIKeyboardTypeNumberPad;
+//  [_inputBackground addSubview:verificationCodeField];
+//  if (verificationCodeField.text.length > 0) {
+//    [verificationCodeField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+//  }
+//
+//  [verificationCodeField addTarget:self
+//                            action:@selector(textFieldDidChange:)
+//                  forControlEvents:UIControlEventEditingChanged];
+//  UILabel *verificationCodeLb = [[UILabel alloc] initWithFrame:CGRectZero];
+//  verificationCodeLb.text = NSLocalizedStringFromTable(@"Verification Code", @"RongCloudKit",nil);
+//  verificationCodeLb.hidden = YES;
+//
+//  verificationCodeLb.font = [UIFont fontWithName:@"Heiti SC" size:10.0];
+//  verificationCodeLb.translatesAutoresizingMaskIntoConstraints = NO;
+//  verificationCodeLb.textColor = [UIColor blackColor];
+//  [_inputBackground addSubview:verificationCodeLb];
+//  verificationCodeField.delegate = self;
+//
+//  _getVerificationCodeBt = [[UIButton alloc] init];
+//  [_getVerificationCodeBt
+//      setBackgroundColor:[[UIColor alloc] initWithRed:133 / 255.f
+//                                                green:133 / 255.f
+//                                                 blue:133 / 255.f
+//                                                alpha:1]];
+//  [_getVerificationCodeBt setTitle:NSLocalizedStringFromTable(@"Send Code", @"RongCloudKit",nil) forState:UIControlStateNormal];
+//  [_getVerificationCodeBt setTitleColor:[UIColor blackColor]
+//                               forState:UIControlStateNormal];
+//  [_getVerificationCodeBt addTarget:self
+//                             action:@selector(getVerficationCode)
+//                   forControlEvents:UIControlEventTouchUpInside];
+//  _getVerificationCodeBt.translatesAutoresizingMaskIntoConstraints = NO;
+//  [_getVerificationCodeBt.titleLabel
+//      setFont:[UIFont fontWithName:@"Heiti SC" size:13.0]];
+//  _getVerificationCodeBt.enabled = NO;
+//  _getVerificationCodeBt.layer.masksToBounds = YES;
+//  _getVerificationCodeBt.layer.cornerRadius = 6.f;
+//  [_inputBackground addSubview:_getVerificationCodeBt];
 
-  verificationCodeField.backgroundColor = [UIColor clearColor];
-  verificationCodeField.tag = VerificationCodeFieldTag;
-  verificationCodeField.attributedPlaceholder = [[NSAttributedString alloc]
-      initWithString:NSLocalizedStringFromTable(@"Verification Code", @"RongCloudKit",nil)
-          attributes:@{NSForegroundColorAttributeName : color}];
-  verificationCodeField.textColor = [UIColor blackColor];
-  self.view.translatesAutoresizingMaskIntoConstraints = YES;
-  verificationCodeField.translatesAutoresizingMaskIntoConstraints = NO;
-  verificationCodeField.adjustsFontSizeToFitWidth = YES;
-  verificationCodeField.clearButtonMode = UITextFieldViewModeWhileEditing;
-  verificationCodeField.keyboardType = UIKeyboardTypeNumberPad;
-  [_inputBackground addSubview:verificationCodeField];
-  if (verificationCodeField.text.length > 0) {
-    [verificationCodeField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
-  }
-
-  [verificationCodeField addTarget:self
-                            action:@selector(textFieldDidChange:)
-                  forControlEvents:UIControlEventEditingChanged];
-  UILabel *verificationCodeLb = [[UILabel alloc] initWithFrame:CGRectZero];
-  verificationCodeLb.text = NSLocalizedStringFromTable(@"Verification Code", @"RongCloudKit",nil);
-  verificationCodeLb.hidden = YES;
-
-  verificationCodeLb.font = [UIFont fontWithName:@"Heiti SC" size:10.0];
-  verificationCodeLb.translatesAutoresizingMaskIntoConstraints = NO;
-  verificationCodeLb.textColor = [UIColor blackColor];
-  [_inputBackground addSubview:verificationCodeLb];
-  verificationCodeField.delegate = self;
-
-  _getVerificationCodeBt = [[UIButton alloc] init];
-  [_getVerificationCodeBt
-      setBackgroundColor:[[UIColor alloc] initWithRed:133 / 255.f
-                                                green:133 / 255.f
-                                                 blue:133 / 255.f
-                                                alpha:1]];
-  [_getVerificationCodeBt setTitle:NSLocalizedStringFromTable(@"Send Code", @"RongCloudKit",nil) forState:UIControlStateNormal];
-  [_getVerificationCodeBt setTitleColor:[UIColor blackColor]
-                               forState:UIControlStateNormal];
-  [_getVerificationCodeBt addTarget:self
-                             action:@selector(getVerficationCode)
-                   forControlEvents:UIControlEventTouchUpInside];
-  _getVerificationCodeBt.translatesAutoresizingMaskIntoConstraints = NO;
-  [_getVerificationCodeBt.titleLabel
-      setFont:[UIFont fontWithName:@"Heiti SC" size:13.0]];
-  _getVerificationCodeBt.enabled = NO;
-  _getVerificationCodeBt.layer.masksToBounds = YES;
-  _getVerificationCodeBt.layer.cornerRadius = 6.f;
-  [_inputBackground addSubview:_getVerificationCodeBt];
-
-  _countDownLable = [[UILabel alloc] init];
-  _countDownLable.textColor = [UIColor blackColor];
-  [_countDownLable setBackgroundColor:[[UIColor alloc] initWithRed:133 / 255.f
-                                                             green:133 / 255.f
-                                                              blue:133 / 255.f
-                                                             alpha:1]];
-  _countDownLable.textAlignment = UITextAlignmentCenter;
-  [_countDownLable setFont:[UIFont fontWithName:@"Heiti SC" size:13.0]];
-  _countDownLable.text = @"60";
-  _countDownLable.translatesAutoresizingMaskIntoConstraints = NO;
-  _countDownLable.hidden = YES;
-  _countDownLable.layer.masksToBounds = YES;
-  _countDownLable.layer.cornerRadius = 6.f;
-  [_inputBackground addSubview:_countDownLable];
+//  _countDownLable = [[UILabel alloc] init];
+//  _countDownLable.textColor = [UIColor blackColor];
+//  [_countDownLable setBackgroundColor:[[UIColor alloc] initWithRed:133 / 255.f
+//                                                             green:133 / 255.f
+//                                                              blue:133 / 255.f
+//                                                             alpha:1]];
+//  _countDownLable.textAlignment = UITextAlignmentCenter;
+//  [_countDownLable setFont:[UIFont fontWithName:@"Heiti SC" size:13.0]];
+//  _countDownLable.text = @"60";
+//  _countDownLable.translatesAutoresizingMaskIntoConstraints = NO;
+//  _countDownLable.hidden = YES;
+//  _countDownLable.layer.masksToBounds = YES;
+//  _countDownLable.layer.cornerRadius = 6.f;
+//  [_inputBackground addSubview:_countDownLable];
 
   RCUnderlineTextField *passwordTextField =
       [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
@@ -256,12 +256,12 @@
   passwordTextField.delegate = self;
   passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]
       initWithString:NSLocalizedStringFromTable(@"Password", @"RongCloudKit",nil)
-          attributes:@{NSForegroundColorAttributeName : color}];
+          attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
   passwordTextField.translatesAutoresizingMaskIntoConstraints = NO;
   // passwordTextField.text = [self getDefaultUserPwd];
   [_inputBackground addSubview:passwordTextField];
   UILabel *pswMsgLb = [[UILabel alloc] initWithFrame:CGRectZero];
-  pswMsgLb.text = @"6-16位字符区分大小写";
+  pswMsgLb.text = NSLocalizedStringFromTable(@"6-16Characters Case sensitive", @"RongCloudKit",nil);
   pswMsgLb.font = [UIFont fontWithName:@"Heiti SC" size:10.0];
   pswMsgLb.translatesAutoresizingMaskIntoConstraints = NO;
 //  pswMsgLb.textColor =
@@ -281,7 +281,7 @@
   rePasswordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
   rePasswordTextField.attributedPlaceholder = [[NSAttributedString alloc]
       initWithString:NSLocalizedStringFromTable(@"Nickname", @"RongCloudKit",nil)
-          attributes:@{NSForegroundColorAttributeName : color}];
+          attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
   rePasswordTextField.translatesAutoresizingMaskIntoConstraints = NO;
   // passwordTextField.text = [self getDefaultUserPwd];
   [rePasswordTextField addTarget:self
@@ -308,15 +308,15 @@
     recommendTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     recommendTextField.attributedPlaceholder = [[NSAttributedString alloc]
                                                  initWithString:NSLocalizedStringFromTable(@"Recommender Phone(optional)", @"RongCloudKit",nil)
-                                                 attributes:@{NSForegroundColorAttributeName : color}];
+                                                 attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
     recommendTextField.translatesAutoresizingMaskIntoConstraints = NO;
     [recommendTextField addTarget:self
                             action:@selector(textFieldDidChange:)
                   forControlEvents:UIControlEventEditingChanged];
-    recommendTextField.font = userNameTextField.font;
-    if (userNameTextField.text.length > 0) {
-        [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
-    }
+    recommendTextField.font = [UIFont fontWithName:@"Heiti SC" size:10.0];;
+//    if (userNameTextField.text.length > 0) {
+//        [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+//    }
     [_inputBackground addSubview:recommendTextField];
     
   // UIEdgeInsets buttonEdgeInsets = UIEdgeInsetsMake(0, 7.f, 0, 7.f);
@@ -400,112 +400,112 @@
 
   [self.view addSubview:bottomBackground];
 
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:userNameMsgLb
-                                        attribute:NSLayoutAttributeBottom
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:userNameTextField
-                                        attribute:NSLayoutAttributeBottom
-                                       multiplier:1.0
-                                         constant:0]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:userNameMsgLb
-                                        attribute:NSLayoutAttributeRight
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:userNameTextField
-                                        attribute:NSLayoutAttributeRight
-                                       multiplier:1.0
-                                         constant:-7]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:verificationCodeLb
-                                        attribute:NSLayoutAttributeBottom
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:verificationCodeField
-                                        attribute:NSLayoutAttributeBottom
-                                       multiplier:1.0
-                                         constant:0]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:verificationCodeLb
-                                        attribute:NSLayoutAttributeRight
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:verificationCodeField
-                                        attribute:NSLayoutAttributeRight
-                                       multiplier:1.0
-                                         constant:-7]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:_getVerificationCodeBt
-                                        attribute:NSLayoutAttributeBottom
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:verificationCodeField
-                                        attribute:NSLayoutAttributeBottom
-                                       multiplier:1.0
-                                         constant:-15]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:_countDownLable
-                                        attribute:NSLayoutAttributeBottom
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:verificationCodeField
-                                        attribute:NSLayoutAttributeBottom
-                                       multiplier:1.0
-                                         constant:-17]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:_countDownLable
-                                        attribute:NSLayoutAttributeRight
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:_getVerificationCodeBt
-                                        attribute:NSLayoutAttributeRight
-                                       multiplier:1.0
-                                         constant:0]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:_countDownLable
-                                        attribute:NSLayoutAttributeHeight
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:_getVerificationCodeBt
-                                        attribute:NSLayoutAttributeHeight
-                                       multiplier:1.0
-                                         constant:0]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:_countDownLable
-                                        attribute:NSLayoutAttributeWidth
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:_getVerificationCodeBt
-                                        attribute:NSLayoutAttributeWidth
-                                       multiplier:1.0
-                                         constant:0]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:pswMsgLb
-                                        attribute:NSLayoutAttributeBottom
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:passwordTextField
-                                        attribute:NSLayoutAttributeBottom
-                                       multiplier:1.0
-                                         constant:0]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:pswMsgLb
-                                        attribute:NSLayoutAttributeRight
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:passwordTextField
-                                        attribute:NSLayoutAttributeRight
-                                       multiplier:1.0
-                                         constant:-7]];
-
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:bottomBackground
-                                        attribute:NSLayoutAttributeBottom
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:self.view
-                                        attribute:NSLayoutAttributeBottom
-                                       multiplier:1.0
-                                         constant:20]];
-
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:_rongLogo
-                                        attribute:NSLayoutAttributeCenterX
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:self.view
-                                        attribute:NSLayoutAttributeCenterX
-                                       multiplier:1.0
-                                         constant:0]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:userNameMsgLb
+//                                        attribute:NSLayoutAttributeBottom
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:userNameTextField
+//                                        attribute:NSLayoutAttributeBottom
+//                                       multiplier:1.0
+//                                         constant:0]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:userNameMsgLb
+//                                        attribute:NSLayoutAttributeRight
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:userNameTextField
+//                                        attribute:NSLayoutAttributeRight
+//                                       multiplier:1.0
+//                                         constant:-7]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:verificationCodeLb
+//                                        attribute:NSLayoutAttributeBottom
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:verificationCodeField
+//                                        attribute:NSLayoutAttributeBottom
+//                                       multiplier:1.0
+//                                         constant:0]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:verificationCodeLb
+//                                        attribute:NSLayoutAttributeRight
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:verificationCodeField
+//                                        attribute:NSLayoutAttributeRight
+//                                       multiplier:1.0
+//                                         constant:-7]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:_getVerificationCodeBt
+//                                        attribute:NSLayoutAttributeBottom
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:verificationCodeField
+//                                        attribute:NSLayoutAttributeBottom
+//                                       multiplier:1.0
+//                                         constant:-15]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:_countDownLable
+//                                        attribute:NSLayoutAttributeBottom
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:verificationCodeField
+//                                        attribute:NSLayoutAttributeBottom
+//                                       multiplier:1.0
+//                                         constant:-17]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:_countDownLable
+//                                        attribute:NSLayoutAttributeRight
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:_getVerificationCodeBt
+//                                        attribute:NSLayoutAttributeRight
+//                                       multiplier:1.0
+//                                         constant:0]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:_countDownLable
+//                                        attribute:NSLayoutAttributeHeight
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:_getVerificationCodeBt
+//                                        attribute:NSLayoutAttributeHeight
+//                                       multiplier:1.0
+//                                         constant:0]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:_countDownLable
+//                                        attribute:NSLayoutAttributeWidth
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:_getVerificationCodeBt
+//                                        attribute:NSLayoutAttributeWidth
+//                                       multiplier:1.0
+//                                         constant:0]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:pswMsgLb
+//                                        attribute:NSLayoutAttributeBottom
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:passwordTextField
+//                                        attribute:NSLayoutAttributeBottom
+//                                       multiplier:1.0
+//                                         constant:0]];
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:pswMsgLb
+//                                        attribute:NSLayoutAttributeRight
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:passwordTextField
+//                                        attribute:NSLayoutAttributeRight
+//                                       multiplier:1.0
+//                                         constant:-7]];
+//
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:bottomBackground
+//                                        attribute:NSLayoutAttributeBottom
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:self.view
+//                                        attribute:NSLayoutAttributeBottom
+//                                       multiplier:1.0
+//                                         constant:20]];
+//
+//  [self.view addConstraint:[NSLayoutConstraint
+//                               constraintWithItem:_rongLogo
+//                                        attribute:NSLayoutAttributeCenterX
+//                                        relatedBy:NSLayoutRelationEqual
+//                                           toItem:self.view
+//                                        attribute:NSLayoutAttributeCenterX
+//                                       multiplier:1.0
+//                                         constant:0]];
 
   NSDictionary *views = NSDictionaryOfVariableBindings(
       _errorMsgLb, _licenseLb, _rongLogo, _inputBackground, userProtocolButton,
@@ -574,9 +574,9 @@
                                     constant:0];
   [self.view addConstraint:userProtocolLabelConstraint];
   NSDictionary *inputViews = NSDictionaryOfVariableBindings(
-      userNameMsgLb, pswMsgLb, userNameTextField, passwordTextField,
-      loginButton, rePasswordTextField, recommendTextField,verificationCodeField,
-      verificationCodeLb, _getVerificationCodeBt);
+      userNameTextField,pswMsgLb, passwordTextField,
+      loginButton, rePasswordTextField, recommendTextField,
+      _getVerificationCodeBt);
 
   NSArray *inputViewConstraints = [[[[[[[[
       [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameTextField]|"
