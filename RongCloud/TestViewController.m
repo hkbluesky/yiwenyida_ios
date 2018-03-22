@@ -371,25 +371,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.scrollView.contentSize = CGSizeMake(375, 800);
-    NSString *p = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getPortraitUri?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
-    NSURL *purl = [NSURL URLWithString:p];
-    NSURLSession *psession = [NSURLSession sharedSession];
-    NSURLSessionDataTask *task = [psession dataTaskWithURL:purl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        NSString *result = [res objectForKey:@"result"];
-        if([result isEqualToString:@"1"]){
-            NSString *portraitUrl = [res objectForKey:@"portraitUri"];
-            [DEFAULTS setObject:portraitUrl forKey:@"userPortraitUri"];
-            [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
-            
-        }else{
-            NSString *portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
-            [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
-        }
-        
-    }];
-    [task resume];
-    
     self.titleName.text = [RCIM sharedRCIM].currentUserInfo.name;
     //接口
     NSString *path = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getSchedule?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
@@ -412,15 +393,28 @@
 #pragma mark - viewWillAppear
 -(void)viewWillAppear:(BOOL)animated{
     //更新头像
-    NSString *portraitUrl = [DEFAULTS stringForKey:@"userPortraitUri"];
-    if ([portraitUrl isEqualToString:@""]) {
-        portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
-    }
-    NSURL *iconUrl = [NSURL URLWithString:portraitUrl];
-    NSData *iconData = [NSData dataWithContentsOfURL:iconUrl];
-    UIImage *iconImage = [UIImage imageWithData:iconData];
-    [self.titleImage setImage:iconImage];
-    
+    NSString *p = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getPortraitUri?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
+    NSURL *purl = [NSURL URLWithString:p];
+    NSURLSession *psession = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [psession dataTaskWithURL:purl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        NSString *result = [res objectForKey:@"result"];
+        if([result isEqualToString:@"1"]){
+            NSString *portraitUrl = [res objectForKey:@"portraitUri"];
+            NSString *oldUrl = [DEFAULTS stringForKey:@"userPortraitUri"];
+            if([portraitUrl isEqualToString:oldUrl]){
+                //头像没改变就不处理
+            }else{
+                [DEFAULTS setObject:portraitUrl forKey:@"userPortraitUri"];
+                [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
+            }
+        }else{
+            NSString *portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
+            [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
+        }
+        
+    }];
+    [task resume];
     
     NSString *urlStr = [NSString stringWithFormat:@"https://ask.vipjingjie.com/moblie/personalAike?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
     NSURL *url = [NSURL URLWithString:urlStr];
