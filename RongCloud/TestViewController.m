@@ -370,14 +370,26 @@
 #pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *portraitUrl = [DEFAULTS stringForKey:@"userPortraitUri"];
-    if ([portraitUrl isEqualToString:@""]) {
-        portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
-    }
-    NSURL *iconUrl = [NSURL URLWithString:portraitUrl];
-    NSData *iconData = [NSData dataWithContentsOfURL:iconUrl];
-    UIImage *iconImage = [UIImage imageWithData:iconData];
-    [self.titleImage setImage:iconImage];
+    
+    NSString *p = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getPortraitUri?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
+    NSURL *purl = [NSURL URLWithString:p];
+    NSURLSession *psession = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [psession dataTaskWithURL:purl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        NSString *result = [res objectForKey:@"result"];
+        if([result isEqualToString:@"1"]){
+            NSString *portraitUrl = [res objectForKey:@"portraitUri"];
+            [DEFAULTS setObject:url forKey:@"userPortraitUri"];
+            [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
+            
+        }else{
+            NSString *portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
+            [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
+        }
+        
+    }];
+    [task resume];
+    
     self.titleName.text = [RCIM sharedRCIM].currentUserInfo.name;
     //接口
     NSString *path = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getSchedule?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
@@ -391,7 +403,12 @@
     }];
     [dataTask resume];
 }
-
+-(void)setIcon:(NSString *)url{
+    NSURL *iconUrl = [NSURL URLWithString:url];
+    NSData *iconData = [NSData dataWithContentsOfURL:iconUrl];
+    UIImage *iconImage = [UIImage imageWithData:iconData];
+    [self.titleImage setImage:iconImage];
+}
 #pragma mark - viewWillAppear
 -(void)viewWillAppear:(BOOL)animated{
     self.scrollView.contentSize = CGSizeMake(375, 800);

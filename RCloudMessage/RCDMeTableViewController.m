@@ -124,17 +124,6 @@
         cell = [[RCDMeCell alloc] init];
     }
     if (detailsCell == nil) {
-        NSString *portraitUrl = [DEFAULTS stringForKey:@"userPortraitUri"];
-        if ([portraitUrl isEqualToString:@""]) {
-            portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
-        }
-//        detailsCell = [[RCDMeDetailsCell alloc]
-//                initWithLeftImageStr:nil
-//                leftImageSize:CGSizeMake(65, 65)
-//                rightImaeStr:@"right"
-//                rightImageSize:CGSizeZero];
-//        detailsCell.leftImageCornerRadius = 5.f;
-//        detailsCell.leftLabel.text = [DEFAULTS stringForKey:@"userNickName"];
         detailsCell = [[RCDMeDetailsCell alloc] init];
     }
     switch (indexPath.section) {
