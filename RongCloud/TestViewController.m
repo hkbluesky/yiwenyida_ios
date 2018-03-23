@@ -372,6 +372,7 @@
     [super viewDidLoad];
     self.scrollView.contentSize = CGSizeMake(375, 800);
     self.titleName.text = [RCIM sharedRCIM].currentUserInfo.name;
+    self.idLbl.text = [NSString stringWithFormat:@"%@%@",NSLocalizedStringFromTable(@"Show ID", @"RongCloudKit",nil),[DEFAULTS stringForKey:@"ID"]];
     //接口
     NSString *path = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getSchedule?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
     NSURL *url = [NSURL URLWithString:path];

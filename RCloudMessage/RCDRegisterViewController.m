@@ -17,6 +17,7 @@
 #import "RCUnderlineTextField.h"
 #import <RongIMLib/RongIMLib.h>
 #import "UIColor+RCColor.h"
+#import "PsdViewController.h"
 @interface RCDRegisterViewController () <UITextFieldDelegate>
 @property(unsafe_unretained, nonatomic) IBOutlet UITextField *tfEmail;
 @property(unsafe_unretained, nonatomic) IBOutlet UITextField *tfNickName;
@@ -143,41 +144,41 @@
                                            blue:51.0f / 255.0f
                                           alpha:1];
   [self.view addSubview:_errorMsgLb];
-  RCUnderlineTextField *userNameTextField =
-      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
-
-  userNameTextField.backgroundColor = [UIColor clearColor];
-  userNameTextField.tag = UserTextFieldTag;
-  //_account.placeholder=[NSString stringWithFormat:@"Email"];
-  UIColor *color = [UIColor blackColor];
-  userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
-      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
-          attributes:@{NSForegroundColorAttributeName : color}];
-  userNameTextField.textColor = [UIColor blackColor];
-  self.view.translatesAutoresizingMaskIntoConstraints = YES;
-  userNameTextField.translatesAutoresizingMaskIntoConstraints = NO;
-  userNameTextField.adjustsFontSizeToFitWidth = YES;
-  userNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-  [_inputBackground addSubview:userNameTextField];
-  userNameTextField.keyboardType = UIKeyboardTypeNumberPad;
-  if (userNameTextField.text.length > 0) {
-    [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
-  }
-
-  [userNameTextField addTarget:self
-                        action:@selector(textFieldDidChange:)
-              forControlEvents:UIControlEventEditingChanged];
-  UILabel *userNameMsgLb = [[UILabel alloc] initWithFrame:CGRectZero];
-  userNameMsgLb.text = NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil);
-
-  userNameMsgLb.font = [UIFont fontWithName:@"Heiti SC" size:10.0];
-  userNameMsgLb.translatesAutoresizingMaskIntoConstraints = NO;
-//  userNameMsgLb.textColor =
-//      [[UIColor alloc] initWithRed:153 green:153 blue:153 alpha:0.5];
-    userNameMsgLb.textColor = [UIColor blackColor];
-  [_inputBackground addSubview:userNameMsgLb];
-  _PhoneNumber = userNameTextField.text;
-  userNameTextField.delegate = self;
+//  RCUnderlineTextField *userNameTextField =
+//      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
+//
+//  userNameTextField.backgroundColor = [UIColor clearColor];
+//  userNameTextField.tag = UserTextFieldTag;
+//  //_account.placeholder=[NSString stringWithFormat:@"Email"];
+//  UIColor *color = [UIColor blackColor];
+//  userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
+//      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
+//          attributes:@{NSForegroundColorAttributeName : color}];
+//  userNameTextField.textColor = [UIColor blackColor];
+//  self.view.translatesAutoresizingMaskIntoConstraints = YES;
+//  userNameTextField.translatesAutoresizingMaskIntoConstraints = NO;
+//  userNameTextField.adjustsFontSizeToFitWidth = YES;
+//  userNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+//  [_inputBackground addSubview:userNameTextField];
+//  userNameTextField.keyboardType = UIKeyboardTypeNumberPad;
+//  if (userNameTextField.text.length > 0) {
+//    [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+//  }
+//
+//  [userNameTextField addTarget:self
+//                        action:@selector(textFieldDidChange:)
+//              forControlEvents:UIControlEventEditingChanged];
+//  UILabel *userNameMsgLb = [[UILabel alloc] initWithFrame:CGRectZero];
+//  userNameMsgLb.text = NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil);
+//
+//  userNameMsgLb.font = [UIFont fontWithName:@"Heiti SC" size:10.0];
+//  userNameMsgLb.translatesAutoresizingMaskIntoConstraints = NO;
+////  userNameMsgLb.textColor =
+////      [[UIColor alloc] initWithRed:153 green:153 blue:153 alpha:0.5];
+//    userNameMsgLb.textColor = [UIColor blackColor];
+//  [_inputBackground addSubview:userNameMsgLb];
+//  _PhoneNumber = userNameTextField.text;
+//  userNameTextField.delegate = self;
 
 //  RCUnderlineTextField *verificationCodeField =
 //      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
@@ -307,16 +308,16 @@
     recommendTextField.keyboardType = UIKeyboardTypeNumberPad;
     recommendTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     recommendTextField.attributedPlaceholder = [[NSAttributedString alloc]
-                                                 initWithString:NSLocalizedStringFromTable(@"Recommender Phone(optional)", @"RongCloudKit",nil)
+                                                 initWithString:NSLocalizedStringFromTable(@"Recommender ID(optional)", @"RongCloudKit",nil)
                                                  attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
     recommendTextField.translatesAutoresizingMaskIntoConstraints = NO;
     [recommendTextField addTarget:self
                             action:@selector(textFieldDidChange:)
                   forControlEvents:UIControlEventEditingChanged];
-    recommendTextField.font = [UIFont fontWithName:@"Heiti SC" size:10.0];;
-//    if (userNameTextField.text.length > 0) {
-//        [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
-//    }
+    //recommendTextField.font = [UIFont fontWithName:@"Heiti SC" size:25.0];
+    if (recommendTextField.text.length > 0) {
+        [recommendTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+    }
     [_inputBackground addSubview:recommendTextField];
     
   // UIEdgeInsets buttonEdgeInsets = UIEdgeInsetsMake(0, 7.f, 0, 7.f);
@@ -489,39 +490,39 @@
 //                                       multiplier:1.0
 //                                         constant:-7]];
 //
-//  [self.view addConstraint:[NSLayoutConstraint
-//                               constraintWithItem:bottomBackground
-//                                        attribute:NSLayoutAttributeBottom
-//                                        relatedBy:NSLayoutRelationEqual
-//                                           toItem:self.view
-//                                        attribute:NSLayoutAttributeBottom
-//                                       multiplier:1.0
-//                                         constant:20]];
-//
-//  [self.view addConstraint:[NSLayoutConstraint
-//                               constraintWithItem:_rongLogo
-//                                        attribute:NSLayoutAttributeCenterX
-//                                        relatedBy:NSLayoutRelationEqual
-//                                           toItem:self.view
-//                                        attribute:NSLayoutAttributeCenterX
-//                                       multiplier:1.0
-//                                         constant:0]];
+  [self.view addConstraint:[NSLayoutConstraint
+                               constraintWithItem:bottomBackground
+                                        attribute:NSLayoutAttributeBottom
+                                        relatedBy:NSLayoutRelationEqual
+                                           toItem:self.view
+                                        attribute:NSLayoutAttributeBottom
+                                       multiplier:1.0
+                                         constant:20]];
+
+  [self.view addConstraint:[NSLayoutConstraint
+                               constraintWithItem:_rongLogo
+                                        attribute:NSLayoutAttributeCenterX
+                                        relatedBy:NSLayoutRelationEqual
+                                           toItem:self.view
+                                        attribute:NSLayoutAttributeCenterX
+                                       multiplier:1.0
+                                         constant:0]];
 
   NSDictionary *views = NSDictionaryOfVariableBindings(
       _errorMsgLb, _licenseLb, _rongLogo, _inputBackground, userProtocolButton,
       bottomBackground);
 
-  NSArray *viewConstraints = [[[[[[[NSLayoutConstraint
+  NSArray *viewConstraints = [[[[[[[[NSLayoutConstraint
       constraintsWithVisualFormat:@"H:|-41-[_inputBackground]-41-|"
                           options:0
                           metrics:nil
                             views:views]
-      //      arrayByAddingObjectsFromArray:
-      //          [NSLayoutConstraint
-      //              constraintsWithVisualFormat:@"H:|-14-[_rongLogo]-70-|"
-      //                                  options:0
-      //                                  metrics:nil
-      //                                    views:views]]
+            arrayByAddingObjectsFromArray:
+                [NSLayoutConstraint
+                    constraintsWithVisualFormat:@"H:|[_rongLogo]|"
+                                        options:0
+                                        metrics:nil
+                                          views:views]]
       arrayByAddingObjectsFromArray:
           [NSLayoutConstraint constraintsWithVisualFormat:
                                   @"V:|-70-[_rongLogo(100)]-10-[_errorMsgLb(=="
@@ -574,41 +575,41 @@
                                     constant:0];
   [self.view addConstraint:userProtocolLabelConstraint];
   NSDictionary *inputViews = NSDictionaryOfVariableBindings(
-      userNameTextField,pswMsgLb, passwordTextField,
-      loginButton, rePasswordTextField, recommendTextField,
-      _getVerificationCodeBt);
+       rePasswordTextField,passwordTextField,
+       recommendTextField,
+      loginButton);
 
-  NSArray *inputViewConstraints = [[[[[[[[
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameTextField]|"
-                                              options:0
-                                              metrics:nil
-                                                views:inputViews]
-      arrayByAddingObjectsFromArray:
-          [NSLayoutConstraint
-              constraintsWithVisualFormat:
-                  @"H:|[verificationCodeField][_getVerificationCodeBt]|"
-                                  options:0
-                                  metrics:nil
-                                    views:inputViews]]
-      arrayByAddingObjectsFromArray:
-          [NSLayoutConstraint
-              constraintsWithVisualFormat:@"H:[_getVerificationCodeBt(100)]|"
-                                  options:0
-                                  metrics:nil
-                                    views:inputViews]]
+  NSArray *inputViewConstraints = [[[[
+//      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameTextField]|"
+//                                              options:0
+//                                              metrics:nil
+//                                                views:inputViews]
+//      arrayByAddingObjectsFromArray:
+//          [NSLayoutConstraint
+//              constraintsWithVisualFormat:
+//                  @"H:|[verificationCodeField][_getVerificationCodeBt]|"
+//                                  options:0
+//                                  metrics:nil
+//                                    views:inputViews]]
+//      arrayByAddingObjectsFromArray:
+//          [NSLayoutConstraint
+//              constraintsWithVisualFormat:@"H:[_getVerificationCodeBt(100)]|"
+//                                  options:0
+//                                  metrics:nil
+//                                    views:inputViews]]
 
-      //                                      arrayByAddingObjectsFromArray:
-      //                                      [NSLayoutConstraint
-      //                                       constraintsWithVisualFormat:@"H:[verificationCodeField]-[_countDownLable]|"
-      //                                       options:0
-      //                                       metrics:nil
-      //                                       views:inputViews]]
-      arrayByAddingObjectsFromArray:
+//                                            arrayByAddingObjectsFromArray:
+//                                            [NSLayoutConstraint
+//                                             constraintsWithVisualFormat:@"H:[verificationCodeField]-[_countDownLable]|"
+//                                             options:0
+//                                             metrics:nil
+//                                             views:inputViews]]
+//      arrayByAddingObjectsFromArray:
           [NSLayoutConstraint
               constraintsWithVisualFormat:@"H:|[passwordTextField]|"
                                   options:0
                                   metrics:nil
-                                    views:inputViews]]
+                                    views:inputViews]
       arrayByAddingObjectsFromArray:
           [NSLayoutConstraint
               constraintsWithVisualFormat:@"H:|[rePasswordTextField]|"
@@ -619,10 +620,8 @@
       arrayByAddingObjectsFromArray:
           [NSLayoutConstraint
               constraintsWithVisualFormat:@"V:|["
-                                          @"rePasswordTextField(50)]-["
-                                          @"userNameTextField(60)]-["
-                                          @"verificationCodeField(60)]-["
-                                          @"passwordTextField(60)]-["
+                                        @"rePasswordTextField(50)]-["
+                                        @"passwordTextField(60)]-["
                                             @"recommendTextField(60)]-["
                                             @"loginButton(50)]"
                                   options:0
@@ -630,12 +629,12 @@
                                     views:inputViews]]
 
       arrayByAddingObjectsFromArray:
-          [NSLayoutConstraint
-              constraintsWithVisualFormat:@"V:[_getVerificationCodeBt(35)]"
-                                  options:0
-                                  metrics:nil
-                                    views:inputViews]]
-      arrayByAddingObjectsFromArray:
+//          [NSLayoutConstraint
+//              constraintsWithVisualFormat:@"V:[_getVerificationCodeBt(35)]"
+//                                  options:0
+//                                  metrics:nil
+//                                    views:inputViews]]
+//      arrayByAddingObjectsFromArray:
           [NSLayoutConstraint
               constraintsWithVisualFormat:@"H:|[recommendTextField]|"
                                 options:0
@@ -823,8 +822,11 @@
 
 /*找回密码*/
 - (void)forgetPswEvent {
-  RCDFindPswViewController *temp = [[RCDFindPswViewController alloc] init];
-  [self.navigationController pushViewController:temp animated:YES];
+//  RCDFindPswViewController *temp = [[RCDFindPswViewController alloc] init];
+//  [self.navigationController pushViewController:temp animated:YES];
+    UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"ForgetPsd" bundle:nil];
+    PsdViewController *psdVC = [meStoryboard instantiateViewControllerWithIdentifier:@"psd"];
+    [self showViewController:psdVC sender:nil];
 }
 
 /**
@@ -871,150 +873,52 @@
   NSString *nickName =
       [(UITextField *)[self.view viewWithTag:RePassWordFieldTag] text];
     NSString *recommendPhone = [(UITextField *)[self.view viewWithTag:RecommendTextFieldTag] text];
-    if(recommendPhone.length>0&&[self isPureInt:recommendPhone]){
-        //Chris:验证推荐人手机号
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/checkphone?phone=%@",recommendPhone]];
-        NSURLSession *session = [NSURLSession sharedSession];
-        NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            //解析JSON
-            NSDictionary *accessDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            NSString *result = [accessDict objectForKey:@"result"];
-            if([result isEqualToString:@"1"]){
-                //验证验证码是否有效
-                [AFHttpTool verifyVerificationCode:@"86"
-                                       phoneNumber:userName
-                                  verificationCode:verificationCode
-                                           success:^(id response) {
-                                               NSDictionary *results = response;
-                                               NSString *code =
-                                               [NSString stringWithFormat:@"%@", [results objectForKey:@"code"]];
-                                               
-                                               if (code.intValue == 200) {
-                                                   NSDictionary *result = [results objectForKey:@"result"];
-                                                   NSString *verificationToken =
-                                                   [result objectForKey:@"verification_token"];
-                                                   //注册用户
-                                                   [AFHttpTool registerWithNickname:nickName
-                                                                           password:userPwd
-                                                                   verficationToken:verificationToken
-                                                                            success:^(id response) {
-                                                                                NSDictionary *regResults = response;
-                                                                                NSString *code = [NSString
-                                                                                                  stringWithFormat:@"%@", [regResults objectForKey:@"code"]];
-                                                                                
-                                                                                if (code.intValue == 200) {
-                                                                                    NSString *urlStr = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/appUpdateData?new_phone=%@&phone=%@",userName,recommendPhone];
-                                                                                    NSURL *url = [NSURL URLWithString:urlStr];
-                                                                                    NSURLSession *session = [NSURLSession sharedSession];
-                                                                                    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                                                                        __weak typeof(&*self) weakSelf = self;
-                                                                                        //解析JSON
-                                                                                        NSDictionary *accessDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                                                                                        NSString *result = [accessDict objectForKey:@"result"];
-                                                                                        if([result isEqualToString:@"1"]){
-                                                                                            _errorMsgLb.text = @"注册成功";
-                                                                                            dispatch_after(
-                                                                                                           dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_MSEC),
-                                                                                                           dispatch_get_main_queue(), ^{
-                                                                                                               [weakSelf.navigationController
-                                                                                                                popViewControllerAnimated:YES];
-                                                                                                           });
-                                                                                        }
-                                                                                    }];
-                                                                                    [dataTask resume];
-                                                                                    
-                                                                                    
-                                                                                }
-                                                                                
-                                                                            }
-                                                                            failure:^(NSError *err) {
-                                                                                NSLog(@"");
-                                                                                _errorMsgLb.text = NSLocalizedStringFromTable(@"Sign up Failure", @"RongCloudKit",nil);
-                                                                                
-                                                                            }];
-                                               }
-                                               if (code.intValue == 1000) {
-                                                   _errorMsgLb.text = NSLocalizedStringFromTable(@"Invalid Verification Code", @"RongCloudKit",nil);
-                                               }
-                                               if (code.intValue == 2000) {
-                                                   _errorMsgLb.text = NSLocalizedStringFromTable(@"Verification Code expired", @"RongCloudKit",nil);
-                                               }
-                                           }
-                                           failure:^(NSError *err) {
-                                               _errorMsgLb.text = NSLocalizedStringFromTable(@"Invalid Verification Code", @"RongCloudKit",nil);
-                                           }];
-            }else{
-                [self performSelectorOnMainThread:@selector(updateErrorMsg:) withObject:NSLocalizedStringFromTable(@"Inviter's Phone doesn't exsit", @"RongCloudKit",nil) waitUntilDone:YES];
-            }
-        }];
-        [dataTask resume];
-    }else{
-        //验证验证码是否有效
-        [AFHttpTool verifyVerificationCode:@"86"
-                               phoneNumber:userName
-                          verificationCode:verificationCode
-                                   success:^(id response) {
-                                       NSDictionary *results = response;
-                                       NSString *code =
-                                       [NSString stringWithFormat:@"%@", [results objectForKey:@"code"]];
-                                       
-                                       if (code.intValue == 200) {
-                                           NSDictionary *result = [results objectForKey:@"result"];
-                                           NSString *verificationToken =
-                                           [result objectForKey:@"verification_token"];
-                                           //注册用户
-                                           [AFHttpTool registerWithNickname:nickName
-                                                                   password:userPwd
-                                                           verficationToken:verificationToken
-                                                                    success:^(id response) {
-                                                                        NSDictionary *regResults = response;
-                                                                        NSString *code = [NSString
-                                                                                          stringWithFormat:@"%@", [regResults objectForKey:@"code"]];
-                                                                        
-                                                                        if (code.intValue == 200) {
-                                                                            NSString *urlStr = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/appUpdateData?new_phone=%@&phone=%@",userName,recommendPhone];
-                                                                            NSURL *url = [NSURL URLWithString:urlStr];
-                                                                            NSURLSession *session = [NSURLSession sharedSession];
-                                                                            NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                                                                //解析JSON
-                                                                                NSDictionary *accessDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                                                                                NSString *result = [accessDict objectForKey:@"result"];
-                                                                                if([result isEqualToString:@"1"]){
-                                                                                    _errorMsgLb.text = NSLocalizedStringFromTable(@"Sign up Success", @"RongCloudKit",nil);
-                                                                                    dispatch_after(
-                                                                                                   dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_MSEC),
-                                                                                                   dispatch_get_main_queue(), ^{
-                                                                                                       [self.navigationController
-                                                                                                        popViewControllerAnimated:YES];
-                                                                                                   });
-                                                                                }
-                                                                            }];
-                                                                            [dataTask resume];
-                                                                            
-                                                                            
-                                                                        }
-                                                                        
-                                                                    }
-                                                                    failure:^(NSError *err) {
-                                                                        NSLog(@"");
-                                                                        _errorMsgLb.text = NSLocalizedStringFromTable(@"Sign up Failure", @"RongCloudKit",nil);
-                                                                        
-                                                                    }];
-                                       }
-                                       if (code.intValue == 1000) {
-                                           _errorMsgLb.text = NSLocalizedStringFromTable(@"Invalid Verification Code", @"RongCloudKit",nil);
-                                       }
-                                       if (code.intValue == 2000) {
-                                           _errorMsgLb.text = NSLocalizedStringFromTable(@"Verification Code expired", @"RongCloudKit",nil);
-                                       }
-                                   }
-                                   failure:^(NSError *err) {
-                                       _errorMsgLb.text = NSLocalizedStringFromTable(@"Invalid Verification Code", @"RongCloudKit",nil);
-                                   }];
-    }
-    
-    
-  
+    //注册用户
+    [AFHttpTool registerWithNickname:nickName
+                            password:userPwd
+                    verficationToken:@"123"
+                             success:^(id response) {
+                                 NSDictionary *regResults = response;
+                                 NSString *code = [NSString
+                                                   stringWithFormat:@"%@", [regResults objectForKey:@"code"]];
+                                 
+                                 if (code.intValue == 200) {
+                                     NSDictionary *result = [regResults objectForKey:@"result"];
+                                     NSString *identy = [result objectForKey:@"phone"];
+                                     [DEFAULTS setObject:identy forKey:@"ID"];
+                                     NSString *urlStr = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/appUpdateData?new_phone=%@&phone=%@",identy,recommendPhone];
+                                     NSURL *url = [NSURL URLWithString:urlStr];
+                                     NSURLSession *session = [NSURLSession sharedSession];
+                                     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                         __weak typeof(&*self) weakSelf = self;
+                                         //解析JSON
+                                         NSDictionary *accessDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                                         NSString *result = [accessDict objectForKey:@"result"];
+                                         if([result isEqualToString:@"1"]){
+                                             
+                                         }
+                                     }];
+                                     [dataTask resume];
+                                     
+                                     
+                                     
+                                     _errorMsgLb.text = @"注册成功";
+                                     dispatch_after(
+                                        dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_MSEC),
+                                        dispatch_get_main_queue(), ^{
+                                            RCDLoginViewController *loginView = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+                                            loginView.ID = identy;
+                                            [self.navigationController
+                                             popViewControllerAnimated:YES];
+                                        });
+                                 }
+                                 
+                             }
+                             failure:^(NSError *err) {
+                                 NSLog(@"");
+                                 _errorMsgLb.text = NSLocalizedStringFromTable(@"Sign up Failure", @"RongCloudKit",nil);
+                                 
+                             }];
 }
 
 
@@ -1034,44 +938,45 @@
  *  @return 是否合法输入
  */
 - (BOOL)checkContent {
-  NSString *userName =
-      [(UITextField *)[self.view viewWithTag:UserTextFieldTag] text];
-  NSString *userPwd =
-      [(UITextField *)[self.view viewWithTag:PassWordFieldTag] text];
-  NSString *reUserPwd =
-      [(UITextField *)[self.view viewWithTag:RePassWordFieldTag] text];
-    NSString *reCommendPhone = [(UITextField *)[self.view viewWithTag:RecommendTextFieldTag] text];
-  if (userName.length == 0) {
-
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Empty Phone Number!", @"RongCloudKit",nil);
-    return NO;
-  }
-  if (userPwd.length > 20) {
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Password has to be shorter than 20 characters", @"RongCloudKit",nil);
-    return NO;
-  }
-  if (userPwd.length == 0) {
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Password can't be empty", @"RongCloudKit",nil);
-    return NO;
-  }
-  if (reUserPwd.length == 0) {
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname can't be empty", @"RongCloudKit",nil);
-    return NO;
-  }
-  if (reUserPwd.length > 32) {
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname has to be shorter than 32 characters", @"RongCloudKit",nil);
-    return NO;
-  }
-    if((reCommendPhone.length>0)&&(reCommendPhone.length<11)){
-        _errorMsgLb.text = NSLocalizedStringFromTable(@"Invalid length of the inviter's phone number", @"RongCloudKit",nil);
-        return NO;
-    }
-  NSRange _range = [reUserPwd rangeOfString:@" "];
-  if (_range.location != NSNotFound) {
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname can't contains space", @"RongCloudKit",nil);
-    return NO;
-  }
-  return YES;
+//  NSString *userName =
+//      [(UITextField *)[self.view viewWithTag:UserTextFieldTag] text];
+//  NSString *userPwd =
+//      [(UITextField *)[self.view viewWithTag:PassWordFieldTag] text];
+//  NSString *reUserPwd =
+//      [(UITextField *)[self.view viewWithTag:RePassWordFieldTag] text];
+//    NSString *reCommendPhone = [(UITextField *)[self.view viewWithTag:RecommendTextFieldTag] text];
+//  if (userName.length == 0) {
+//
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Empty Phone Number!", @"RongCloudKit",nil);
+//    return NO;
+//  }
+//  if (userPwd.length > 20) {
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Password has to be shorter than 20 characters", @"RongCloudKit",nil);
+//    return NO;
+//  }
+//  if (userPwd.length == 0) {
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Password can't be empty", @"RongCloudKit",nil);
+//    return NO;
+//  }
+//  if (reUserPwd.length == 0) {
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname can't be empty", @"RongCloudKit",nil);
+//    return NO;
+//  }
+//  if (reUserPwd.length > 32) {
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname has to be shorter than 32 characters", @"RongCloudKit",nil);
+//    return NO;
+//  }
+//    if((reCommendPhone.length>0)&&(reCommendPhone.length<11)){
+//        _errorMsgLb.text = NSLocalizedStringFromTable(@"Invalid length of the inviter's phone number", @"RongCloudKit",nil);
+//        return NO;
+//    }
+//  NSRange _range = [reUserPwd rangeOfString:@" "];
+//  if (_range.location != NSNotFound) {
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname can't contains space", @"RongCloudKit",nil);
+//    return NO;
+//  }
+//  return YES;
+    return YES;
 }
 
 - (NSUInteger)animatedImagesNumberOfImages:

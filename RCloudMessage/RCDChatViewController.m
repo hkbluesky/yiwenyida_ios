@@ -689,7 +689,7 @@ didFinishSavingWithError:(NSError *)error
                 if([result isEqualToString:@"1"]){
                     //够钱，发起通话
                     
-                    [weakSelf performSelectorOnMainThread:@selector(startVideoCall) withObject:nil waitUntilDone:NO];
+                    [weakSelf performSelectorOnMainThread:@selector(startVoiceCall) withObject:nil waitUntilDone:NO];
                 }else if([result isEqualToString:@"0"]){
                     [weakSelf performSelectorOnMainThread:@selector(alertSomething2) withObject:nil waitUntilDone:NO];
                     

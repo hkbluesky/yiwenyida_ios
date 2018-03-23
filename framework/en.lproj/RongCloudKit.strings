@@ -266,7 +266,7 @@
 "New Password" = "New Password";
 "Nickname" = "Nickname";
 "Password" = "Password";
-"Recommender Phone(optional)" = "Inviter's Phone(optional)";
+"Recommender ID(optional)" = "Inviter's ID(optional)";
 "Forgot Password" = "Forgot psw";
 "Personal Info" = "Personal Info";
 "This Phone Number has been used" = "This Phone Number has been used";
@@ -286,9 +286,9 @@
 "Fail to connect to server" = "Fail to connect to server";
 "Network error,please check" = "Network error,please check";
 "Logining..." = "Sign in...";
-"Phone number or password wrong" = "Phone number or password wrong";
+"Phone number or password wrong" = "ID or password wrong";
 "Sign in failure,please check the network" = "Sign in failure,please check the network";
-"Please check the phone number and password" = "Please check the phone number and password";
+"Please check the phone number and password" = "Please check the ID and password";
 "6-16Characters Case sensitive" = "6-16Characters Case sensitive";
 "phone number is not registered" = "phone number is not registered";
 "Modify Success" = "Modify Success";
@@ -332,3 +332,5 @@
 "He is inconvenient for video calls now" = "He(She) is inconvenient for video calls now";
 "He is inconvenient for voice calls now" = "He(She) is inconvenient for voice calls now";
 "Invalid Number" = "Invalid Number";
+"ID" = "ID";
+"Show ID" = "ID:";

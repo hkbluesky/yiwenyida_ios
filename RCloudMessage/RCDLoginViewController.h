@@ -13,4 +13,5 @@
 
 //-(void) defaultLogin;
 - (void)login:(NSString *)userName password:(NSString *)password;
+@property (nonatomic,copy) NSString *ID;
 @end

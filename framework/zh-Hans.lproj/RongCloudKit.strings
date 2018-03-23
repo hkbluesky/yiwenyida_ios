@@ -265,7 +265,7 @@
 "New Password" = "新密码";
 "Nickname" = "昵称";
 "Password" = "密码";
-"Recommender Phone(optional)" = "推荐人手机号（选填）";
+"Recommender ID(optional)" = "推荐人ID（选填）";
 "Forgot Password" = "忘记密码";
 "Personal Info" = "个人资料";
 "This Phone Number has been used" = "手机号已注册";
@@ -285,9 +285,9 @@
 "Fail to connect to server" = "连接服务器失败";
 "Network error,please check" = "网络出错，请检查";
 "Logining..." = "登陆...";
-"Phone number or password wrong" = "手机号或密码错误";
+"Phone number or password wrong" = "用户代码或密码错误";
 "Sign in failure,please check the network" = "登陆失败，请检查网络";
-"Please check the phone number and password" = "请检查手机号和密码";
+"Please check the phone number and password" = "请检查用户代码和密码";
 "6-16Characters Case sensitive" = "6-16位字符区分大小写";
 "Phone number is not registered" = "手机号未注册";
 "Modify Success" = "修改成功";
@@ -331,3 +331,5 @@
 "He is inconvenient for video calls now" = "他(她)现在不方便视频通话";
 "He is inconvenient for voice calls now" = "他(她)现在不方便语音通话";
 "Invalid Number" = "数字错误";
+"ID" = "用户代码";
+"Show ID" = "用户代码:";

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Psd View Controller-->
         <scene sceneID="0ia-CF-3a8">
             <objects>
-                <viewController id="UuR-0J-4ia" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="psd" id="UuR-0J-4ia" customClass="PsdViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BAk-mU-ejV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +44,9 @@
                                 <state key="normal" title="注册">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="SignupClick:" destination="UuR-0J-4ia" eventType="touchUpInside" id="ZfC-AQ-st8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tu-43-63Q">
                                 <rect key="frame" x="295" y="617" width="80" height="50"/>
@@ -54,6 +57,9 @@
                                 <state key="normal" title="登陆">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="LoginClick:" destination="UuR-0J-4ia" eventType="touchUpInside" id="lRk-wT-l8j"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,6 +75,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Qz-11-0lI"/>
                     </view>
+                    <connections>
+                        <outlet property="view" destination="BAk-mU-ejV" id="GiD-Vb-c5v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eW-UC-FLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

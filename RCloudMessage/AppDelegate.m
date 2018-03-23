@@ -94,7 +94,7 @@
   //[NSThread sleepForTimeInterval:1.0];
   
   //为了在启动页面不显示statusBar，所以在工程设置里面把statusBar隐藏了，在启动页面过后，显示statusBar。
-  //application.statusBarHidden = NO;
+  application.statusBarHidden = NO;
     
     [self umengTrack];
     

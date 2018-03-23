@@ -51,7 +51,7 @@
                                             <constraint firstAttribute="height" constant="21" id="Eua-vs-PaZ"/>
                                             <constraint firstAttribute="width" constant="160" id="T7J-6I-MKN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

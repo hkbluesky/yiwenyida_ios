@@ -27,7 +27,7 @@
 #import "RCDMainTabBarViewController.h"
 #import "RCDSettingServerUrlViewController.h"
 #import "RCDSettingUserDefaults.h"
-
+#import "PsdViewController.h"
 @interface RCDLoginViewController () <UITextFieldDelegate, RCIMConnectionStatusDelegate,UIAlertViewDelegate>
 
 //@property(retain, nonatomic) IBOutlet RCAnimatedImagesView *animatedImagesView;
@@ -177,10 +177,10 @@ MBProgressHUD *hud;
   //_account.placeholder=[NSString stringWithFormat:@"Email"];
   UIColor *color = [UIColor blackColor];
   userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
-      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
+      initWithString:NSLocalizedStringFromTable(@"ID", @"RongCloudKit",nil)
           attributes:@{NSForegroundColorAttributeName : color}];
   userNameTextField.textColor = [UIColor blackColor];
-  userNameTextField.text = [self getDefaultUserName];
+  
   userNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
   userNameTextField.adjustsFontSizeToFitWidth = YES;
   userNameTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -501,6 +501,11 @@ arrayByAddingObjectsFromArray:
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    RCUnderlineTextField *field = (RCUnderlineTextField*)[self.view viewWithTag:UserTextFieldTag];
+    field.text = self.ID;
+    UITextField *Password =
+    (UITextField *)[self.view viewWithTag:PassWordFieldTag];
+    Password.text = @"";
   NSString *userName =
       [(UITextField *)[self.view viewWithTag:UserTextFieldTag] text];
   NSRange foundObj =
@@ -547,8 +552,11 @@ arrayByAddingObjectsFromArray:
 
 /*找回密码*/
 - (void)forgetPswEvent {
-  RCDFindPswViewController *temp = [[RCDFindPswViewController alloc] init];
-  [self.navigationController pushViewController:temp animated:YES];
+//  RCDFindPswViewController *temp = [[RCDFindPswViewController alloc] init];
+//  [self.navigationController pushViewController:temp animated:YES];
+    UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"ForgetPsd" bundle:nil];
+    PsdViewController *psdVC = [meStoryboard instantiateViewControllerWithIdentifier:@"psd"];
+    [self showViewController:psdVC sender:nil];
 }
 /**
  *  获取默认用户
@@ -789,7 +797,7 @@ arrayByAddingObjectsFromArray:
     [_pwdTextField shake];
     return NO;
   }
-  if (userName.length != 11) {
+  if (userName.length != 8) {
     return NO;
   }
   if ([RCDTextFieldValidate validatePassword:userPwd] == NO) {
