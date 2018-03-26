@@ -46,6 +46,7 @@
 #import "VideoEndView.h"
 #import "AVViewController.h"
 #import <WebKit/WebKit.h>
+#import "PersonnalPageViewController.h"
 @interface RCDChatViewController () <
 UIActionSheetDelegate, RCRealTimeLocationObserver,
 RealTimeLocationStatusViewDelegate, UIAlertViewDelegate,
@@ -70,7 +71,10 @@ RealTimeLocationStatusView *realTimeLocationStatusView;
 
 NSMutableDictionary *userInputStatus;
 UIWebView *rpView;
-@implementation RCDChatViewController
+@implementation RCDChatViewController{
+    dispatch_source_t dtimer;
+    dispatch_source_t dtimer2;
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -404,7 +408,8 @@ UIWebView *rpView;
         NSString *result = [accessDict objectForKey:@"result"];
         if([result isEqualToString:@"1"]){
             NSString *pid = [accessDict objectForKey:@"id"];
-            [weakSelf performSelectorOnMainThread:@selector(goToPersonalInfo:) withObject:pid waitUntilDone:YES];
+//            [weakSelf performSelectorOnMainThread:@selector(goToPersonalInfo:) withObject:pid waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(goToPersonalInfo:) withObject:pid waitUntilDone:YES];
         }else{
             [weakSelf performSelectorOnMainThread:@selector(alertSomething) withObject:nil waitUntilDone:NO];
         }
@@ -496,19 +501,23 @@ UIWebView *rpView;
  *  @param imageMessageContent 图片消息内容
  */
 -(void)goToPersonalInfo:(NSString *)pid{
-    UIViewController *infoVC = [[UIViewController alloc]init];
-    infoVC.view.frame = [UIScreen mainScreen].bounds;
-    WKWebView *webView = [[WKWebView alloc]init];
-    webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
-    NSString *str1 = [NSString stringWithFormat:@"https://ask.vipjingjie.com/moblie/app/memberData/%@?userid=%@",pid,[RCIM sharedRCIM].currentUserInfo.userId];
-    NSString *str2 = [NSString stringWithFormat:@"&locate=%@",[self getPreferredLanguage]];
-    NSURL *url = [NSURL URLWithString:[str1 stringByAppendingString:str2]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [webView loadRequest:request];
-    UIViewController *vc = [[UIViewController alloc]init];
-    vc.view.frame = [UIScreen mainScreen].bounds;
-    [vc.view addSubview:webView];
-    [self showViewController:vc sender:nil];
+//    UIViewController *infoVC = [[UIViewController alloc]init];
+//    infoVC.view.frame = [UIScreen mainScreen].bounds;
+//    WKWebView *webView = [[WKWebView alloc]init];
+//    webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
+//    NSString *str1 = [NSString stringWithFormat:@"https://ask.vipjingjie.com/moblie/app/memberData/%@?userid=%@",pid,[RCIM sharedRCIM].currentUserInfo.userId];
+//    NSString *str2 = [NSString stringWithFormat:@"&locate=%@",[self getPreferredLanguage]];
+//    NSURL *url = [NSURL URLWithString:[str1 stringByAppendingString:str2]];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    [webView loadRequest:request];
+//    UIViewController *vc = [[UIViewController alloc]init];
+//    vc.view.frame = [UIScreen mainScreen].bounds;
+//    [vc.view addSubview:webView];
+//    [self showViewController:vc sender:nil];
+    PersonnalPageViewController *pVC = [[PersonnalPageViewController alloc]init];
+    pVC.pid = pid;
+    pVC.targetId = self.targetId;
+    [self.navigationController pushViewController:pVC animated:YES];
 }
 -(void)alertSomething{
     UIAlertView *alertView = [[UIAlertView alloc]
@@ -604,13 +613,51 @@ didFinishSavingWithError:(NSError *)error
         [self.timer invalidate];
         self.timer = nil;
         self.y = 0;//y是用来记扣费次数的，用来算最终视频扣费
-        if([self videoAndAudioFee]){
-            self.timer2 = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(videoAndAudioFee) userInfo:nil repeats:YES];
-            [[NSRunLoop currentRunLoop] addTimer:self.timer2 forMode:NSRunLoopCommonModes];
+        
+//            self.timer2 = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(videoAndAudioFee) userInfo:nil repeats:YES];
+//            [[NSRunLoop currentRunLoop] addTimer:self.timer2 forMode:NSRunLoopCommonModes];
+            dispatch_queue_t queue = dispatch_get_main_queue();
+            
+            // 创建GCD定时器
+            dtimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+            
+            dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC); // 开始时间
+            uint64_t interval = 60 * NSEC_PER_SEC; // 时间间隔
+            
+            // 设置GCD定时器开始时间，间隔时间
+            dispatch_source_set_timer(dtimer, start, interval, 0);
+            
+            // GCD定时器处理回调方法
+            dispatch_source_set_event_handler(dtimer, ^{
+                NSLog(@"---------%@", [NSThread currentThread]);
+                [self videoAndAudioFee];
+            });
+            
+            // GCD定时器启动，默认是关闭的
+            dispatch_resume(dtimer);
             self.i=0;
-            self.timer3 = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(countTime) userInfo:nil repeats:YES];
-            [[NSRunLoop currentRunLoop] addTimer:self.timer3 forMode:NSRunLoopCommonModes];
-        }
+//            self.timer3 = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(countTime) userInfo:nil repeats:YES];
+//            [[NSRunLoop currentRunLoop] addTimer:self.timer3 forMode:NSRunLoopCommonModes];
+            dispatch_queue_t queue2 = dispatch_get_main_queue();
+            
+            // 创建GCD定时器
+            dtimer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue2);
+            
+            dispatch_time_t start2 = dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC); // 开始时间
+            uint64_t interval2 = 1 * NSEC_PER_SEC; // 时间间隔
+            
+            // 设置GCD定时器开始时间，间隔时间
+            dispatch_source_set_timer(dtimer2, start2, interval2, 0);
+            
+            // GCD定时器处理回调方法
+            dispatch_source_set_event_handler(dtimer2, ^{
+                NSLog(@"---------%@", [NSThread currentThread]);
+                [self countTime];
+            });
+            
+            // GCD定时器启动，默认是关闭的
+            dispatch_resume(dtimer2);
+        
     }
 }
 -(void)alertSomething2{
@@ -832,36 +879,36 @@ didFinishSavingWithError:(NSError *)error
     [self excionTitle];
 }
 #pragma mark override
-- (void)didTapMessageCell:(RCMessageModel *)model {
-    [super didTapMessageCell:model];
-    if ([model.content isKindOfClass:[RCRealTimeLocationStartMessage class]]) {
-        [self showRealTimeLocationViewController];
-    }
-    
-    if ([model.content isKindOfClass:[RCContactCardMessage class]]) {
-        RCContactCardMessage *cardMSg = (RCContactCardMessage *)model.content;
-        RCUserInfo *user = [[RCUserInfo alloc] initWithUserId:cardMSg.userId name:cardMSg.name portrait:cardMSg.portraitUri];
-        [self gotoNextPage:user];
-    }
-    if([model.content isKindOfClass:[RCChrisMessage class]]){
-        [AFHttpTool getTokenSuccess:^(id response) {
-            RedPacketViewController *rpVC = [[RedPacketViewController alloc] init];
-            NSString *token = response[@"result"][@"token"];
-            RCChrisMessage *message = (RCChrisMessage *)model.content;
-            NSString *extra = message.extra;
-            NSArray *tmpArray = [extra componentsSeparatedByString:@"&"];
-            NSString *userid = [RCIM sharedRCIM].currentUserInfo.userId;
-            NSString *url = [NSString stringWithFormat:@"http://test.garase.net/open/redpackage/%@/%@/%@/%@?token=%@",tmpArray[0],userid,tmpArray[2],tmpArray[3],token];
-            url = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)url, NULL, CFSTR("#%<>[\\]^`{|}\"]+"), kCFStringEncodingUTF8));
-            NSString *path = (NSString *)url;
-            rpVC.path = path;
-            [self showViewController:rpVC sender:(@"chris")];
-        } failure:^(NSError *err) {
-        }];
-        
-    }
-    
-}
+//- (void)didTapMessageCell:(RCMessageModel *)model {
+//    [super didTapMessageCell:model];
+//    if ([model.content isKindOfClass:[RCRealTimeLocationStartMessage class]]) {
+//        [self showRealTimeLocationViewController];
+//    }
+//
+//    if ([model.content isKindOfClass:[RCContactCardMessage class]]) {
+//        RCContactCardMessage *cardMSg = (RCContactCardMessage *)model.content;
+//        RCUserInfo *user = [[RCUserInfo alloc] initWithUserId:cardMSg.userId name:cardMSg.name portrait:cardMSg.portraitUri];
+//        [self gotoNextPage:user];
+//    }
+//    if([model.content isKindOfClass:[RCChrisMessage class]]){
+//        [AFHttpTool getTokenSuccess:^(id response) {
+//            RedPacketViewController *rpVC = [[RedPacketViewController alloc] init];
+//            NSString *token = response[@"result"][@"token"];
+//            RCChrisMessage *message = (RCChrisMessage *)model.content;
+//            NSString *extra = message.extra;
+//            NSArray *tmpArray = [extra componentsSeparatedByString:@"&"];
+//            NSString *userid = [RCIM sharedRCIM].currentUserInfo.userId;
+//            NSString *url = [NSString stringWithFormat:@"http://test.garase.net/open/redpackage/%@/%@/%@/%@?token=%@",tmpArray[0],userid,tmpArray[2],tmpArray[3],token];
+//            url = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)url, NULL, CFSTR("#%<>[\\]^`{|}\"]+"), kCFStringEncodingUTF8));
+//            NSString *path = (NSString *)url;
+//            rpVC.path = path;
+//            [self showViewController:rpVC sender:(@"chris")];
+//        } failure:^(NSError *err) {
+//        }];
+//
+//    }
+//
+//}
 
 -(void)didTapUrlInMessageCell:(NSString *)url model:(RCMessageModel *)model
 {
@@ -897,37 +944,37 @@ didFinishSavingWithError:(NSError *)error
     return menuList;
 }
 
-- (void)didTapCellPortrait:(NSString *)userId {
-    if (self.conversationType == ConversationType_GROUP ||
-        self.conversationType == ConversationType_DISCUSSION) {
-        if (![userId isEqualToString:[RCIM sharedRCIM].currentUserInfo.userId]) {
-            [[RCDUserInfoManager shareInstance]
-             getFriendInfo:userId
-             completion:^(RCUserInfo *user) {
-                 [[RCIM sharedRCIM] refreshUserInfoCache:user
-                                              withUserId:user.userId];
-                 [self gotoNextPage:user];
-             }];
-        } else {
-            [[RCDUserInfoManager shareInstance]
-             getUserInfo:userId
-             completion:^(RCUserInfo *user) {
-                 [[RCIM sharedRCIM] refreshUserInfoCache:user
-                                              withUserId:user.userId];
-                 [self gotoNextPage:user];
-             }];
-        }
-    }
-    if (self.conversationType == ConversationType_PRIVATE) {
-        [[RCDUserInfoManager shareInstance] getUserInfo:userId
-                                             completion:^(RCUserInfo *user) {
-                                                 [[RCIM sharedRCIM]
-                                                  refreshUserInfoCache:user
-                                                  withUserId:user.userId];
-                                                 [self gotoNextPage:user];
-                                             }];
-    }
-}
+//- (void)didTapCellPortrait:(NSString *)userId {
+//    if (self.conversationType == ConversationType_GROUP ||
+//        self.conversationType == ConversationType_DISCUSSION) {
+//        if (![userId isEqualToString:[RCIM sharedRCIM].currentUserInfo.userId]) {
+//            [[RCDUserInfoManager shareInstance]
+//             getFriendInfo:userId
+//             completion:^(RCUserInfo *user) {
+//                 [[RCIM sharedRCIM] refreshUserInfoCache:user
+//                                              withUserId:user.userId];
+//                 [self gotoNextPage:user];
+//             }];
+//        } else {
+//            [[RCDUserInfoManager shareInstance]
+//             getUserInfo:userId
+//             completion:^(RCUserInfo *user) {
+//                 [[RCIM sharedRCIM] refreshUserInfoCache:user
+//                                              withUserId:user.userId];
+//                 [self gotoNextPage:user];
+//             }];
+//        }
+//    }
+//    if (self.conversationType == ConversationType_PRIVATE) {
+//        [[RCDUserInfoManager shareInstance] getUserInfo:userId
+//                                             completion:^(RCUserInfo *user) {
+//                                                 [[RCIM sharedRCIM]
+//                                                  refreshUserInfoCache:user
+//                                                  withUserId:user.userId];
+//                                                 [self gotoNextPage:user];
+//                                             }];
+//    }
+//}
 
 - (void)gotoNextPage:(RCUserInfo *)user {
     NSArray *friendList = [[RCDataBaseManager shareInstance] getAllFriends];
@@ -1486,11 +1533,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     }else{
         //通话余额不足停止
         [[[RCCall sharedRCCall] currentCallSession] hangup];
-        [self.timer2 invalidate];
-        self.timer2 = nil;
+//        [self.timer2 invalidate];
+//        self.timer2 = nil;
+        dispatch_source_cancel(dtimer); // 异步取消调度源
+        dtimer = nil; // 将 dispatch_source_t 置为nil
         VideoEndView *veView = [[VideoEndView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        int s = (self.i+1)%60;
-        int m = (self.i+1)/60;
+        int s = (self.i)%60;
+        int m = (self.i)/60;
         NSString *lan = [self getCurrentLanguage];
         if([lan containsString:@"zh"]){
             NSString *str = [NSString stringWithFormat:@"通话总时长：%d 分 %d 秒",m,s];
@@ -1512,6 +1561,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         
 //         [super.navigationController setNavigationBarHidden:YES animated:YES];
 //        [self.view addSubview:veView];
+        [self excionTitle];
         [self performSelectorOnMainThread:@selector(delayView:) withObject:veView waitUntilDone:YES];
         return NO;
 
@@ -1522,11 +1572,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         self.i++;
     }else{
         //通话人为停止
-        [self.timer2 invalidate];
-        self.timer2 = nil;
+//        [self.timer2 invalidate];
+//        self.timer2 = nil;
+        dispatch_source_cancel(dtimer); // 异步取消调度源
+        dtimer = nil; // 将 dispatch_source_t 置为nil
         VideoEndView *veView = [[VideoEndView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        int s = (self.i+1)%60;
-        int m = (self.i+1)/60;
+        int s = (self.i)%60;
+        int m = (self.i)/60;
         
         NSString *lan = [self getCurrentLanguage];
         if([lan containsString:@"zh"]){
@@ -1548,10 +1600,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         }
         
         
-        [self.timer3 invalidate];
-        self.timer3 = nil;
+//        [self.timer3 invalidate];
+//        self.timer3 = nil;
+        dispatch_source_cancel(dtimer2); // 异步取消调度源
+        dtimer2 = nil; // 将 dispatch_source_t 置为nil
 //        [super.navigationController setNavigationBarHidden:YES animated:YES];
 //        [self.view addSubview:veView];
+        [self excionTitle];
         [self performSelectorOnMainThread:@selector(delayView:) withObject:veView waitUntilDone:YES];
     }
     
@@ -1585,6 +1640,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         return @"en";
     }
 }
+
 @end
 
 

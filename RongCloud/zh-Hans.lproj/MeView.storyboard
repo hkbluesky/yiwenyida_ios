@@ -653,7 +653,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="qZX-0u-9he"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人资料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1j-HS-BHK">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新资料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1j-HS-BHK">
                                                 <rect key="frame" x="58" y="12" width="70" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="6Sm-4Z-Bco"/>

@@ -1,23 +1,18 @@
 //
-//  ServiceViewController.m
+//  PersonnalPageViewController.m
 //  SealTalk
 //
-//  Created by ChrisLaw on 2018/1/24.
+//  Created by ChrisLaw on 2018/3/23.
 //  Copyright © 2018年 RongCloud. All rights reserved.
 //
 
-#import "ServiceViewController.h"
-#import "VideoEndView.h"
-#import <RongIMKit/RongIMKit.h>
-#import "RCDRCIMDataSource.h"
-#import "RCDHttpTool.h"
-#import "RCDUserInfoManager.h"
-#import "RCDChatViewController.h"
-#import "AFHttpTool.h"
-#import "RCDUIBarButtonItem.h"
+#import "PersonnalPageViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <RongCallKit/RongCallKit.h>
-@interface ServiceViewController ()<UIWebViewDelegate>
+#import "RCDChatViewController.h"
+#import "RCDHttpTool.h"
+#import "VideoEndView.h"
+@interface PersonnalPageViewController ()<UIWebViewDelegate>
 @property (nonatomic,strong) UIWebView *webView;
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong) NSTimer *timer2;
@@ -27,78 +22,37 @@
 @property (nonatomic,assign) int i;
 @property (nonatomic,assign) BOOL ifsend;
 @property (nonatomic,assign) int y;
-@property (nonatomic,copy) NSString *targetId;
+
 @end
 
-@implementation ServiceViewController{
+@implementation PersonnalPageViewController{
     dispatch_source_t dtimer;
     dispatch_source_t dtimer2;
 }
 
 - (void)viewDidLoad {
+    NSLog(@"viewDidLoad");
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hiddenNavigation) name:@"removeVideoEndView" object:nil];
     self.webView= [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,
-                                                         self.view.frame.size.height-40*2-20)];
+                                                              self.view.frame.size.height-40*2-20)];
     [self.webView setDelegate:self];
     [self.view addSubview:self.webView];
-//    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction)];
-//    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
-//    [self.view addGestureRecognizer:swipeRight];
-
 }
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    if([self.webView canGoBack]){
-        
-    }else{
-        NSString *str1 = [NSString stringWithFormat:@"https://ask.vipjingjie.com/moblie/app/index?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
-        NSString *str2 = [NSString stringWithFormat:@"&locate=%@",[self getPreferredLanguage]];
-        NSURL *url = [NSURL URLWithString:[str1 stringByAppendingString:str2]];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
-    }
-    [self performSelector:@selector(updateTitle) withObject:nil];
-    
+    NSLog(@"viewWillAppear");
+    NSString *str1 = [NSString stringWithFormat:@"https://ask.vipjingjie.com/moblie/app/memberData/%@?userid=%@",self.pid,[RCIM sharedRCIM].currentUserInfo.userId];
+    NSString *str2 = [NSString stringWithFormat:@"&locate=%@",[self getPreferredLanguage]];
+    NSURL *url = [NSURL URLWithString:[str1 stringByAppendingString:str2]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
 }
--(void)updateTitle{
-    NSString *urlStr = [NSString stringWithFormat:@"https://ask.vipjingjie.com/moblie/personalAike?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        __weak typeof(&*self) weakSelf = self;
-        NSDictionary *accessDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        NSString *result = [accessDict objectForKey:@"result"];
-        if([result isEqualToString:@"1"]){
-            NSString *aike = [accessDict objectForKey:@"aike"];
-            [weakSelf performSelectorOnMainThread:@selector(updateText:) withObject:aike waitUntilDone:YES];
-        }
-    }];
-    [dataTask resume];
-}
--(void)updateText:(NSString *)aike{
-    NSString *title = NSLocalizedStringFromTable(@"ServiceViewTabBarTitle", @"RongCloudKit",
-                                                 nil);
-    NSString *remain = NSLocalizedStringFromTable(@"remain", @"RongCloudKit",
-                                                  nil);
-    NSString *str = [NSString stringWithFormat:@"%@(%@:%@)",title,remain,aike];
-    self.tabBarController.navigationItem.title = str;
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)startVideoCall{
     [[RCCall sharedRCCall] startSingleCall:self.targetId
                                  mediaType:RCCallMediaVideo];
     self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(checkCallState) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     self.i=0;
+    
 }
 -(void)startVoiceCall{
     [[RCCall sharedRCCall] startSingleCall:self.targetId
@@ -151,50 +105,25 @@
             [dataTask resume];
         }else{
             //创建会话
-            RCDChatViewController *chatViewController =
-            [[RCDChatViewController alloc] init];
-            chatViewController.conversationType = ConversationType_PRIVATE;
-            
-            chatViewController.targetId = self.targetId;
-            [[RCDHttpTool shareInstance] getUserInfoByUserID:userid completion:^(RCUserInfo *user) {
-                __weak typeof(&*self) weakSelf = self;
-                NSString *title = user.name;
-                chatViewController.title = title;
-                chatViewController.userName = title;
-                chatViewController.needPopToRootView = YES;
-                chatViewController.displayUserNameInCell = NO;
-                chatViewController.enableNewComingMessageIcon = YES; //开启消息提醒
-                chatViewController.enableUnreadMessageIcon = YES;
-                [weakSelf.navigationController pushViewController:chatViewController animated:YES];
-            }];
-            
+//            RCDChatViewController *chatViewController =
+//            [[RCDChatViewController alloc] init];
+//            chatViewController.conversationType = ConversationType_PRIVATE;
+//
+//            chatViewController.targetId = self.targetId;
+//            [[RCDHttpTool shareInstance] getUserInfoByUserID:userid completion:^(RCUserInfo *user) {
+//                __weak typeof(&*self) weakSelf = self;
+//                NSString *title = user.name;
+//                chatViewController.title = title;
+//                chatViewController.userName = title;
+//                chatViewController.needPopToRootView = YES;
+//                chatViewController.displayUserNameInCell = NO;
+//                chatViewController.enableNewComingMessageIcon = YES; //开启消息提醒
+//                chatViewController.enableUnreadMessageIcon = YES;
+//                [weakSelf.navigationController pushViewController:chatViewController animated:YES];
+//            }];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     };
-}
-
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    if([request.URL.absoluteString containsString:@"index"]){
-        self.tabBarController.navigationItem.leftBarButtonItems = nil;
-    }else{
-        RCDUIBarButtonItem *leftbtn =
-        [[RCDUIBarButtonItem alloc] initContainImage:[UIImage imageNamed:@"goback"]
-                                      imageViewFrame:CGRectMake(0, 6, 24, 24)
-                                         buttonTitle:nil
-                                          titleColor:nil
-                                          titleFrame:CGRectZero
-                                         buttonFrame:CGRectMake(0, 6, 24, 24)
-                                              target:self
-                                              action:@selector(goback)];
-        self.tabBarController.navigationItem.leftBarButtonItems = [leftbtn setTranslation:leftbtn translation:0];
-    }
-    return YES;
-}
-
--(void)goback{
-    [self.webView goBack];
-}
--(void)swipeAction{
-    [self.webView goBack];
 }
 
 //视频语音计费相关
@@ -253,6 +182,34 @@
         dispatch_resume(dtimer2);
     }
 }
+
+-(void)alertSomething2{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"Notice", @"RongCloudKit",nil)
+                                                        message:NSLocalizedStringFromTable(@"Your excoin is less for ten minutes, please add value", @"RongCloudKit",nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedStringFromTable(@"Confirm", @"RongCloudKit",nil)
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
+}
+-(void)alertSomething3:(NSString *)type{
+    if([type isEqualToString:@"video"]){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"Notice", @"RongCloudKit",nil)
+                                                            message:NSLocalizedStringFromTable(@"He is inconvenient for video calls now", @"RongCloudKit",nil)
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedStringFromTable(@"Confirm", @"RongCloudKit",nil)
+                                                  otherButtonTitles:nil, nil];
+        [alertView show];
+    }else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"Notice", @"RongCloudKit",nil)
+                                                            message:NSLocalizedStringFromTable(@"He is inconvenient for voice calls now", @"RongCloudKit",nil)
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedStringFromTable(@"Confirm", @"RongCloudKit",nil)
+                                                  otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+    
+}
+
 -(BOOL)videoAndAudioFee{
     NSString *path;
     if([[[RCCall sharedRCCall]currentCallSession]mediaType] == RCCallMediaAudio){
@@ -309,8 +266,8 @@
         self.i++;
     }else{
         //通话人为停止
-        //        [self.timer2 invalidate];
-        //        self.timer2 = nil;
+//        [self.timer2 invalidate];
+//        self.timer2 = nil;
         dispatch_source_cancel(dtimer); // 异步取消调度源
         dtimer = nil; // 将 dispatch_source_t 置为nil
         VideoEndView *veView = [[VideoEndView alloc]initWithFrame:[UIApplication sharedApplication].keyWindow.frame];
@@ -337,8 +294,8 @@
         }
         
         
-        //        [self.timer3 invalidate];
-        //        self.timer3 = nil;
+//        [self.timer3 invalidate];
+//        self.timer3 = nil;
         dispatch_source_cancel(dtimer2); // 异步取消调度源
         dtimer2 = nil; // 将 dispatch_source_t 置为nil
         //        [super.navigationController setNavigationBarHidden:YES animated:YES];
@@ -353,17 +310,7 @@
     [win addSubview:view];
     [win bringSubviewToFront:view];
 }
--(void)hiddenNavigation{
-//    [super.navigationController setNavigationBarHidden:NO animated:YES];
-//    self.tabBarController.tabBar.hidden = NO;
-}
 
-- (NSString *)getCurrentLanguage
-{
-    NSArray *languages = [NSLocale preferredLanguages];
-    NSString *currentLanguage = [languages objectAtIndex:0];
-    return currentLanguage;
-}
 -(NSString*)getPreferredLanguage{
     
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
@@ -378,30 +325,21 @@
         return @"en";
     }
 }
--(void)alertSomething2{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"Notice", @"RongCloudKit",nil)
-                                                        message:NSLocalizedStringFromTable(@"Your excoin is less for ten minutes, please add value", @"RongCloudKit",nil)
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedStringFromTable(@"Confirm", @"RongCloudKit",nil)
-                                              otherButtonTitles:nil, nil];
-    [alertView show];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
--(void)alertSomething3:(NSString *)type{
-    if([type isEqualToString:@"video"]){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"Notice", @"RongCloudKit",nil)
-                                                            message:NSLocalizedStringFromTable(@"He is inconvenient for video calls now", @"RongCloudKit",nil)
-                                                           delegate:nil
-                                                  cancelButtonTitle:NSLocalizedStringFromTable(@"Confirm", @"RongCloudKit",nil)
-                                                  otherButtonTitles:nil, nil];
-        [alertView show];
-    }else{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"Notice", @"RongCloudKit",nil)
-                                                            message:NSLocalizedStringFromTable(@"He is inconvenient for voice calls now", @"RongCloudKit",nil)
-                                                           delegate:nil
-                                                  cancelButtonTitle:NSLocalizedStringFromTable(@"Confirm", @"RongCloudKit",nil)
-                                                  otherButtonTitles:nil, nil];
-        [alertView show];
-    }
-    
+-(void)dealloc{
+    NSLog(@"dealloc");
 }
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 @end

@@ -68,6 +68,7 @@
 		5111B07D1AE6A11A00317E71 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5111B07A1AE6A11A00317E71 /* RongCloud.bundle */; };
 		5320F2E22058FF8700ED5447 /* launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5320F2E12058FF8700ED5447 /* launch.xib */; };
 		5320F2E620592ECE00ED5447 /* Launch Screen2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5320F2E520592ECE00ED5447 /* Launch Screen2.storyboard */; };
+		5326E8BC2064E193009B4B23 /* PersonnalPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5326E8BB2064E193009B4B23 /* PersonnalPageViewController.m */; };
 		533472D8203D4AB200A7FFD8 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533472D7203D4AB200A7FFD8 /* TestViewController.m */; };
 		5335036C201C541500EAE0F9 /* VideoEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5335036B201C541500EAE0F9 /* VideoEndView.m */; };
 		53398D141FCD132E00336028 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AD4A581CAE5766006C1CBB /* MobileCoreServices.framework */; };
@@ -487,6 +488,8 @@
 		5320F2E12058FF8700ED5447 /* launch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = launch.xib; sourceTree = "<group>"; };
 		5320F2E420592C1E00ED5447 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../RCloudMessage/en.lproj/Main.strings; sourceTree = "<group>"; };
 		5320F2E520592ECE00ED5447 /* Launch Screen2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen2.storyboard"; sourceTree = "<group>"; };
+		5326E8BA2064E193009B4B23 /* PersonnalPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonnalPageViewController.h; sourceTree = "<group>"; };
+		5326E8BB2064E193009B4B23 /* PersonnalPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonnalPageViewController.m; sourceTree = "<group>"; };
 		533472D6203D4AB200A7FFD8 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		533472D7203D4AB200A7FFD8 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		5335036A201C541500EAE0F9 /* VideoEndView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEndView.h; sourceTree = "<group>"; };
@@ -1952,6 +1955,8 @@
 				533472D7203D4AB200A7FFD8 /* TestViewController.m */,
 				534D20792047E82900E4CEB9 /* AlipayViewController.h */,
 				534D207A2047E82900E4CEB9 /* AlipayViewController.m */,
+				5326E8BA2064E193009B4B23 /* PersonnalPageViewController.h */,
+				5326E8BB2064E193009B4B23 /* PersonnalPageViewController.m */,
 				E4FF90B91AC980E900542DC9 /* SettingViewController */,
 				46A831B81AC014B2001A533F /* FindPsw */,
 				E4C4E7CC1A09FC2800140067 /* Login */,
@@ -2930,6 +2935,7 @@
 				E4E939711AD65A95001E0AC6 /* UIImageView+WebCache.m in Sources */,
 				9B447DF11CF82926005D3ED5 /* RCDGroupSettingsTableViewController.m in Sources */,
 				9B447DEC1CF82926005D3ED5 /* RCDEditGroupNameViewController.m in Sources */,
+				5326E8BC2064E193009B4B23 /* PersonnalPageViewController.m in Sources */,
 				E4E9394E1AD65A95001E0AC6 /* UIButton+AFNetworking.m in Sources */,
 				E4E9398A1AD65B7A001E0AC6 /* RCDSettingsTableViewController.m in Sources */,
 				9B447DF91CF82926005D3ED5 /* RCDSquareTableViewController.m in Sources */,

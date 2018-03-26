@@ -19,6 +19,7 @@
 #import "AlipayViewController.h"
 #import <WebKit/WebKit.h>
 #import "RCDAboutRongCloudTableViewController.h"
+#import "UIImageView+WebCache.h"
 @interface TestViewController ()<UIAlertViewDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImage;
@@ -372,6 +373,8 @@
     [super viewDidLoad];
     self.scrollView.contentSize = CGSizeMake(375, 800);
     self.titleName.text = [RCIM sharedRCIM].currentUserInfo.name;
+    NSURL *iconUrl = [NSURL URLWithString:[DEFAULTS objectForKey:@"userPortraitUri"]];
+    [self.titleImage sd_setImageWithURL:iconUrl];
     self.idLbl.text = [NSString stringWithFormat:@"%@%@",NSLocalizedStringFromTable(@"Show ID", @"RongCloudKit",nil),[DEFAULTS stringForKey:@"ID"]];
     //接口
     NSString *path = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getSchedule?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
@@ -384,12 +387,11 @@
         [weakSelf performSelectorOnMainThread:@selector(loadSchedule:) withObject:accessArr waitUntilDone:YES];
     }];
     [dataTask resume];
+    
 }
--(void)setIcon:(NSString *)url{
-    NSURL *iconUrl = [NSURL URLWithString:url];
-    NSData *iconData = [NSData dataWithContentsOfURL:iconUrl];
-    UIImage *iconImage = [UIImage imageWithData:iconData];
-    [self.titleImage setImage:iconImage];
+-(void)setIcon:(UIImage *)image{
+    
+    [self.titleImage setImage:image];
 }
 #pragma mark - viewWillAppear
 -(void)viewWillAppear:(BOOL)animated{
@@ -398,6 +400,7 @@
     NSURL *purl = [NSURL URLWithString:p];
     NSURLSession *psession = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [psession dataTaskWithURL:purl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        __weak typeof(&*self) weakSelf = self;
         NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         NSString *result = [res objectForKey:@"result"];
         if([result isEqualToString:@"1"]){
@@ -407,11 +410,14 @@
                 //头像没改变就不处理
             }else{
                 [DEFAULTS setObject:portraitUrl forKey:@"userPortraitUri"];
-                [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
+                NSURL *url = [NSURL URLWithString:portraitUrl];
+                [weakSelf.titleImage sd_setImageWithURL:url];
+                //[self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
             }
         }else{
             NSString *portraitUrl = [RCDUtilities defaultUserPortrait:[RCIM sharedRCIM].currentUserInfo];
-            [self performSelectorOnMainThread:@selector(setIcon:) withObject:portraitUrl waitUntilDone:NO];
+            NSURL *url = [NSURL URLWithString:portraitUrl];
+            [weakSelf.titleImage sd_setImageWithURL:url];
         }
         
     }];

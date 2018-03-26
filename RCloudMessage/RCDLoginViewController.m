@@ -617,6 +617,7 @@ arrayByAddingObjectsFromArray:
   [self invalidateRetryTime];
   //保存默认用户
   [DEFAULTS setObject:userName forKey:@"userName"];
+    [DEFAULTS setObject:userName forKey:@"ID"];
   [DEFAULTS setObject:password forKey:@"userPwd"];
   [DEFAULTS setObject:token forKey:@"userToken"];
   [DEFAULTS setObject:userId forKey:@"userId"];
@@ -758,6 +759,7 @@ arrayByAddingObjectsFromArray:
         region:@"86"
         success:^(id response) {
           if ([response[@"code"] intValue] == 200) {
+              [DEFAULTS setObject:userName forKey:@"ID"];
             NSString *token = response[@"result"][@"token"];
             NSString *userId = response[@"result"][@"id"];
             [self loginRongCloud:userName userId:userId token:token password:password];

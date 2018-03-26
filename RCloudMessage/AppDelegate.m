@@ -93,8 +93,7 @@
   //启动页停留1秒钟。
   //[NSThread sleepForTimeInterval:1.0];
   
-  //为了在启动页面不显示statusBar，所以在工程设置里面把statusBar隐藏了，在启动页面过后，显示statusBar。
-  application.statusBarHidden = NO;
+  
     
     [self umengTrack];
     
@@ -416,6 +415,8 @@
 //    // 设置全局配置，是否强制使用h5
 //    [[AlibcTradeSDK sharedInstance] setIsForceH5:YES];
     [WXApi registerApp:@"wxd1790687c0d2f600"];
+    //为了在启动页面不显示statusBar，所以在工程设置里面把statusBar隐藏了，在启动页面过后，显示statusBar。
+    application.statusBarHidden = NO;
   return YES;
 }
 
