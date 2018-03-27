@@ -552,11 +552,16 @@ arrayByAddingObjectsFromArray:
 
 /*找回密码*/
 - (void)forgetPswEvent {
-//  RCDFindPswViewController *temp = [[RCDFindPswViewController alloc] init];
-//  [self.navigationController pushViewController:temp animated:YES];
-    UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"ForgetPsd" bundle:nil];
-    PsdViewController *psdVC = [meStoryboard instantiateViewControllerWithIdentifier:@"psd"];
-    [self.navigationController pushViewController:psdVC animated:YES];
+    if([[self getPreferredLanguage] isEqualToString:@"zh"]){
+          RCDFindPswViewController *temp = [[RCDFindPswViewController alloc] init];
+          [self.navigationController pushViewController:temp animated:YES];
+    }else{
+        UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"ForgetPsd" bundle:nil];
+        PsdViewController *psdVC = [meStoryboard instantiateViewControllerWithIdentifier:@"psd"];
+        [self.navigationController pushViewController:psdVC animated:YES];
+    }
+
+
 }
 /**
  *  获取默认用户
