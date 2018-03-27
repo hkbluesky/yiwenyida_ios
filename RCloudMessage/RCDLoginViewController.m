@@ -556,7 +556,7 @@ arrayByAddingObjectsFromArray:
 //  [self.navigationController pushViewController:temp animated:YES];
     UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"ForgetPsd" bundle:nil];
     PsdViewController *psdVC = [meStoryboard instantiateViewControllerWithIdentifier:@"psd"];
-    [self showViewController:psdVC sender:nil];
+    [self.navigationController pushViewController:psdVC animated:YES];
 }
 /**
  *  获取默认用户
