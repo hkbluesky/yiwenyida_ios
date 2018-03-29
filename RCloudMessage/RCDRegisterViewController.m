@@ -882,7 +882,7 @@
     //注册用户
     [AFHttpTool registerWithNickname:nickName
                             password:userPwd
-                    verficationToken:nickName
+                    verficationToken:userName
                              success:^(id response) {
                                  NSDictionary *regResults = response;
                                  NSString *code = [NSString
