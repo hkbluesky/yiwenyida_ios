@@ -71,6 +71,7 @@
 		5326E8BC2064E193009B4B23 /* PersonnalPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5326E8BB2064E193009B4B23 /* PersonnalPageViewController.m */; };
 		533472D8203D4AB200A7FFD8 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533472D7203D4AB200A7FFD8 /* TestViewController.m */; };
 		5335036C201C541500EAE0F9 /* VideoEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5335036B201C541500EAE0F9 /* VideoEndView.m */; };
+		533794D0206C974900DAEDAA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4E939C21AD65D58001E0AC6 /* Info.plist */; };
 		53398D141FCD132E00336028 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AD4A581CAE5766006C1CBB /* MobileCoreServices.framework */; };
 		53398D171FCD60FC00336028 /* MoneyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53398D161FCD60FC00336028 /* MoneyDetailViewController.m */; };
 		53398D3C1FCE609C00336028 /* TiXianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53398D3B1FCE609C00336028 /* TiXianViewController.m */; };
@@ -494,12 +495,6 @@
 		533472D7203D4AB200A7FFD8 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		5335036A201C541500EAE0F9 /* VideoEndView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEndView.h; sourceTree = "<group>"; };
 		5335036B201C541500EAE0F9 /* VideoEndView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEndView.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		533794CC206C80AD00DAEDAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
-		533794CE206C80B200DAEDAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
-		533794CF206C935300DAEDAA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
-=======
->>>>>>> parent of da16f45... info.plist localization
 		53398D151FCD60FC00336028 /* MoneyDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyDetailViewController.h; sourceTree = "<group>"; };
 		53398D161FCD60FC00336028 /* MoneyDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyDetailViewController.m; sourceTree = "<group>"; };
 		53398D3A1FCE609C00336028 /* TiXianViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TiXianViewController.h; sourceTree = "<group>"; };
@@ -2673,6 +2668,7 @@
 				53A137161FB18C4400FA8712 /* res1.jpg in Resources */,
 				539D4D1B205FA4BB00EB6098 /* ForgetPsd.storyboard in Resources */,
 				539D4D21205FC1C000EB6098 /* lach.storyboard in Resources */,
+				533794D0206C974900DAEDAA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3010,20 +3006,6 @@
 			name = RongCloudKit.strings;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		533794CD206C80AD00DAEDAA /* Info.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				533794CC206C80AD00DAEDAA /* Base */,
-				533794CE206C80B200DAEDAA /* en */,
-				533794CF206C935300DAEDAA /* zh-Hans */,
-			);
-			name = Info.plist;
-			path = RCloudMessage;
-			sourceTree = SOURCE_ROOT;
-		};
-=======
->>>>>>> parent of da16f45... info.plist localization
 		534D1F462041523000E4CEB9 /* MeView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

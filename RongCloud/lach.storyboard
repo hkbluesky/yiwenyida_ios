@@ -74,10 +74,10 @@
                             <constraint firstItem="JxW-05-tO1" firstAttribute="leading" secondItem="3HT-r1-QhP" secondAttribute="leading" id="26e-D1-92b"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ckQ-8n-dSm" secondAttribute="bottom" constant="120" id="4az-t7-8cc"/>
                             <constraint firstItem="ckQ-8n-dSm" firstAttribute="centerX" secondItem="3HT-r1-QhP" secondAttribute="centerX" id="F3j-ZH-9bh"/>
-                            <constraint firstItem="JxW-05-tO1" firstAttribute="height" secondItem="3HT-r1-QhP" secondAttribute="height" id="GUQ-rU-HRt"/>
                             <constraint firstItem="wS9-E7-yJx" firstAttribute="centerX" secondItem="3HT-r1-QhP" secondAttribute="centerX" id="Hqi-Hg-pjR"/>
                             <constraint firstAttribute="bottomMargin" secondItem="wS9-E7-yJx" secondAttribute="bottom" constant="40" id="SBc-T3-tNe"/>
                             <constraint firstAttribute="trailing" secondItem="JxW-05-tO1" secondAttribute="trailing" id="VJD-oH-uey"/>
+                            <constraint firstItem="JxW-05-tO1" firstAttribute="top" secondItem="3HT-r1-QhP" secondAttribute="top" id="hPU-Ob-P3I"/>
                             <constraint firstAttribute="bottom" secondItem="JxW-05-tO1" secondAttribute="bottom" id="wNl-ha-ewi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="svP-UK-61W"/>
@@ -96,6 +96,6 @@
     <resources>
         <image name="new_launch" width="540" height="960"/>
         <image name="new_launch2" width="540" height="960"/>
-        <image name="new_launch3" width="250" height="444"/>
+        <image name="new_launch3" width="540" height="960"/>
     </resources>
 </document>

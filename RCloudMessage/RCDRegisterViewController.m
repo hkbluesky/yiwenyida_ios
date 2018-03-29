@@ -881,15 +881,8 @@
     //注册用户
     [AFHttpTool registerWithNickname:nickName
                             password:userPwd
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    verficationToken:userName
-=======
-                    verficationToken:@"123"
->>>>>>> parent of b69322c... 修改UI
-=======
                     verficationToken:nickName
->>>>>>> parent of da16f45... info.plist localization
+
                              success:^(id response) {
                                  NSDictionary *regResults = response;
                                  NSString *code = [NSString

@@ -501,8 +501,13 @@ arrayByAddingObjectsFromArray:
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     RCUnderlineTextField *field = (RCUnderlineTextField*)[self.view viewWithTag:UserTextFieldTag];
-    field.text = self.ID;
+    if(self.ID != nil){
+        field.text = self.ID;
+    }else{
+        field.text = [DEFAULTS objectForKey:@"userName"];
+    }
     UITextField *Password =
     (UITextField *)[self.view viewWithTag:PassWordFieldTag];
     Password.text = @"";

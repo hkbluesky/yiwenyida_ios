@@ -28,6 +28,7 @@
     [self.goBtn.layer setBorderWidth:3];
     [self.goBtn.layer setMasksToBounds:YES];
     self.scrollView.delegate = self;
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +50,9 @@
     }
     self.pageControl.currentPage=index;
 }
-
+-(void)dealloc{
+    self.navigationController.navigationBarHidden = NO;
+}
 /*
 #pragma mark - Navigation
 

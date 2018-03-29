@@ -230,7 +230,8 @@
         NSLog(@"第一次启动");
         UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"lach" bundle:nil];
         LaunchViewController *launchVC = [meStoryboard instantiateViewControllerWithIdentifier:@"lach"];
-        self.window.rootViewController = launchVC;
+        RCDNavigationViewController *rootNavi = [[RCDNavigationViewController alloc] initWithRootViewController:launchVC];
+        self.window.rootViewController = rootNavi;
     }else{
         NSLog(@"不是第一次启动");
         if (token.length && userId.length && password.length) {
