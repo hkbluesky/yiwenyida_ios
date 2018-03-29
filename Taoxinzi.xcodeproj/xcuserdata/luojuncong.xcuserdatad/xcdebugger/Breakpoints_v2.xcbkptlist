@@ -24,6 +24,7 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -42,5 +43,7 @@
       </BreakpointProxy>
 =======
 >>>>>>> parent of b69322c... 修改UI
+=======
+>>>>>>> parent of da16f45... info.plist localization
    </Breakpoints>
 </Bucket>

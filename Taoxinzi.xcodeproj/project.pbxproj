@@ -494,9 +494,12 @@
 		533472D7203D4AB200A7FFD8 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		5335036A201C541500EAE0F9 /* VideoEndView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEndView.h; sourceTree = "<group>"; };
 		5335036B201C541500EAE0F9 /* VideoEndView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEndView.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		533794CC206C80AD00DAEDAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		533794CE206C80B200DAEDAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		533794CF206C935300DAEDAA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
+=======
+>>>>>>> parent of da16f45... info.plist localization
 		53398D151FCD60FC00336028 /* MoneyDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyDetailViewController.h; sourceTree = "<group>"; };
 		53398D161FCD60FC00336028 /* MoneyDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyDetailViewController.m; sourceTree = "<group>"; };
 		53398D3A1FCE609C00336028 /* TiXianViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TiXianViewController.h; sourceTree = "<group>"; };
@@ -1005,6 +1008,7 @@
 		E4E939BD1AD65D30001E0AC6 /* RCDMessageNotifySettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDMessageNotifySettingTableViewController.m; path = RCloudMessage/RCDMessageNotifySettingTableViewController.m; sourceTree = SOURCE_ROOT; };
 		E4E939BF1AD65D41001E0AC6 /* RCDMeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDMeTableViewController.h; path = RCloudMessage/RCDMeTableViewController.h; sourceTree = SOURCE_ROOT; };
 		E4E939C01AD65D41001E0AC6 /* RCDMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDMeTableViewController.m; path = RCloudMessage/RCDMeTableViewController.m; sourceTree = SOURCE_ROOT; };
+		E4E939C21AD65D58001E0AC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RCloudMessage/Info.plist; sourceTree = SOURCE_ROOT; };
 		E4E939C41AD65E1E001E0AC6 /* UIColor+RCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RCColor.h"; sourceTree = "<group>"; };
 		E4E939C51AD65E1E001E0AC6 /* UIColor+RCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RCColor.m"; sourceTree = "<group>"; };
 		E4E939C61AD65E1E001E0AC6 /* UIImage+RCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RCImage.h"; sourceTree = "<group>"; };
@@ -2190,7 +2194,7 @@
 				178998211F6244FA00FC44D3 /* sms-received.caf */,
 				E4BFAE2A1A12184E007165B1 /* Main.storyboard */,
 				A6BD04101B1E941D00ACAF17 /* RCloudMessage.entitlements */,
-				533794CD206C80AD00DAEDAA /* Info.plist */,
+				E4E939C21AD65D58001E0AC6 /* Info.plist */,
 				510624831AD63A9E00348452 /* RongCloudKit.strings */,
 				E4BFAE221A121839007165B1 /* Images.xcassets */,
 				E4BFAE241A121839007165B1 /* main.m */,
@@ -3006,6 +3010,7 @@
 			name = RongCloudKit.strings;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		533794CD206C80AD00DAEDAA /* Info.plist */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3017,6 +3022,8 @@
 			path = RCloudMessage;
 			sourceTree = SOURCE_ROOT;
 		};
+=======
+>>>>>>> parent of da16f45... info.plist localization
 		534D1F462041523000E4CEB9 /* MeView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
