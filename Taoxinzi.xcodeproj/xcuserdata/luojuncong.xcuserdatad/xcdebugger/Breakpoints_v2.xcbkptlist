@@ -13,6 +13,7 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
@@ -39,5 +40,7 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+=======
+>>>>>>> parent of b69322c... 修改UI
    </Breakpoints>
 </Bucket>

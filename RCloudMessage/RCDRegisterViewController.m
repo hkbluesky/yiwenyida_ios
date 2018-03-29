@@ -144,30 +144,30 @@
                                            blue:51.0f / 255.0f
                                           alpha:1];
   [self.view addSubview:_errorMsgLb];
-  RCUnderlineTextField *userNameTextField =
-      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
-
-  userNameTextField.backgroundColor = [UIColor clearColor];
-  userNameTextField.tag = UserTextFieldTag;
-  //_account.placeholder=[NSString stringWithFormat:@"Email"];
-  UIColor *color = [UIColor blackColor];
-  userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
-      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
-          attributes:@{NSForegroundColorAttributeName : color}];
-  userNameTextField.textColor = [UIColor blackColor];
-  self.view.translatesAutoresizingMaskIntoConstraints = YES;
-  userNameTextField.translatesAutoresizingMaskIntoConstraints = NO;
-  userNameTextField.adjustsFontSizeToFitWidth = YES;
-  userNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-  [_inputBackground addSubview:userNameTextField];
-  userNameTextField.keyboardType = UIKeyboardTypeNumberPad;
-  if (userNameTextField.text.length > 0) {
-    [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
-  }
-
-  [userNameTextField addTarget:self
-                        action:@selector(textFieldDidChange:)
-              forControlEvents:UIControlEventEditingChanged];
+//  RCUnderlineTextField *userNameTextField =
+//      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
+//
+//  userNameTextField.backgroundColor = [UIColor clearColor];
+//  userNameTextField.tag = UserTextFieldTag;
+//  //_account.placeholder=[NSString stringWithFormat:@"Email"];
+//  UIColor *color = [UIColor blackColor];
+//  userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
+//      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
+//          attributes:@{NSForegroundColorAttributeName : color}];
+//  userNameTextField.textColor = [UIColor blackColor];
+//  self.view.translatesAutoresizingMaskIntoConstraints = YES;
+//  userNameTextField.translatesAutoresizingMaskIntoConstraints = NO;
+//  userNameTextField.adjustsFontSizeToFitWidth = YES;
+//  userNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+//  [_inputBackground addSubview:userNameTextField];
+//  userNameTextField.keyboardType = UIKeyboardTypeNumberPad;
+//  if (userNameTextField.text.length > 0) {
+//    [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+//  }
+//
+//  [userNameTextField addTarget:self
+//                        action:@selector(textFieldDidChange:)
+//              forControlEvents:UIControlEventEditingChanged];
 //  UILabel *userNameMsgLb = [[UILabel alloc] initWithFrame:CGRectZero];
 //  userNameMsgLb.text = NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil);
 //
@@ -177,8 +177,8 @@
 ////      [[UIColor alloc] initWithRed:153 green:153 blue:153 alpha:0.5];
 //    userNameMsgLb.textColor = [UIColor blackColor];
 //  [_inputBackground addSubview:userNameMsgLb];
-  _PhoneNumber = userNameTextField.text;
-  userNameTextField.delegate = self;
+//  _PhoneNumber = userNameTextField.text;
+//  userNameTextField.delegate = self;
 
 //  RCUnderlineTextField *verificationCodeField =
 //      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
@@ -575,16 +575,16 @@
                                     constant:0];
   [self.view addConstraint:userProtocolLabelConstraint];
   NSDictionary *inputViews = NSDictionaryOfVariableBindings(
-       userNameTextField,rePasswordTextField,passwordTextField,
+       rePasswordTextField,passwordTextField,
        recommendTextField,
       loginButton);
 
-  NSArray *inputViewConstraints = [[[[[
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameTextField]|"
-                                              options:0
-                                              metrics:nil
-                                                views:inputViews]
-    arrayByAddingObjectsFromArray:
+  NSArray *inputViewConstraints = [[[[
+//      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameTextField]|"
+//                                              options:0
+//                                              metrics:nil
+//                                                views:inputViews]
+//      arrayByAddingObjectsFromArray:
 //          [NSLayoutConstraint
 //              constraintsWithVisualFormat:
 //                  @"H:|[verificationCodeField][_getVerificationCodeBt]|"
@@ -609,7 +609,7 @@
               constraintsWithVisualFormat:@"H:|[passwordTextField]|"
                                   options:0
                                   metrics:nil
-                                    views:inputViews]]
+                                    views:inputViews]
       arrayByAddingObjectsFromArray:
           [NSLayoutConstraint
               constraintsWithVisualFormat:@"H:|[rePasswordTextField]|"
@@ -621,7 +621,6 @@
           [NSLayoutConstraint
               constraintsWithVisualFormat:@"V:|["
                                         @"rePasswordTextField(50)]-["
-                                        @"userNameTextField(60)]-["
                                         @"passwordTextField(60)]-["
                                             @"recommendTextField(60)]-["
                                             @"loginButton(50)]"
@@ -882,7 +881,11 @@
     //注册用户
     [AFHttpTool registerWithNickname:nickName
                             password:userPwd
+<<<<<<< HEAD
                     verficationToken:userName
+=======
+                    verficationToken:@"123"
+>>>>>>> parent of b69322c... 修改UI
                              success:^(id response) {
                                  NSDictionary *regResults = response;
                                  NSString *code = [NSString
@@ -944,18 +947,18 @@
  *  @return 是否合法输入
  */
 - (BOOL)checkContent {
-  NSString *userName =
-      [(UITextField *)[self.view viewWithTag:UserTextFieldTag] text];
+//  NSString *userName =
+//      [(UITextField *)[self.view viewWithTag:UserTextFieldTag] text];
 //  NSString *userPwd =
 //      [(UITextField *)[self.view viewWithTag:PassWordFieldTag] text];
-  NSString *reUserPwd =
-      [(UITextField *)[self.view viewWithTag:RePassWordFieldTag] text];
+//  NSString *reUserPwd =
+//      [(UITextField *)[self.view viewWithTag:RePassWordFieldTag] text];
 //    NSString *reCommendPhone = [(UITextField *)[self.view viewWithTag:RecommendTextFieldTag] text];
-  if (userName.length == 0) {
-
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Empty Phone Number!", @"RongCloudKit",nil);
-    return NO;
-  }
+//  if (userName.length == 0) {
+//
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Empty Phone Number!", @"RongCloudKit",nil);
+//    return NO;
+//  }
 //  if (userPwd.length > 20) {
 //    _errorMsgLb.text = NSLocalizedStringFromTable(@"Password has to be shorter than 20 characters", @"RongCloudKit",nil);
 //    return NO;
@@ -964,14 +967,14 @@
 //    _errorMsgLb.text = NSLocalizedStringFromTable(@"Password can't be empty", @"RongCloudKit",nil);
 //    return NO;
 //  }
-  if (reUserPwd.length == 0) {
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname can't be empty", @"RongCloudKit",nil);
-    return NO;
-  }
-  if (reUserPwd.length > 32) {
-    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname has to be shorter than 32 characters", @"RongCloudKit",nil);
-    return NO;
-  }
+//  if (reUserPwd.length == 0) {
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname can't be empty", @"RongCloudKit",nil);
+//    return NO;
+//  }
+//  if (reUserPwd.length > 32) {
+//    _errorMsgLb.text = NSLocalizedStringFromTable(@"Nickname has to be shorter than 32 characters", @"RongCloudKit",nil);
+//    return NO;
+//  }
 //    if((reCommendPhone.length>0)&&(reCommendPhone.length<11)){
 //        _errorMsgLb.text = NSLocalizedStringFromTable(@"Invalid length of the inviter's phone number", @"RongCloudKit",nil);
 //        return NO;

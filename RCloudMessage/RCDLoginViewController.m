@@ -177,7 +177,7 @@ MBProgressHUD *hud;
   //_account.placeholder=[NSString stringWithFormat:@"Email"];
   UIColor *color = [UIColor blackColor];
   userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
-      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
+      initWithString:NSLocalizedStringFromTable(@"ID", @"RongCloudKit",nil)
           attributes:@{NSForegroundColorAttributeName : color}];
   userNameTextField.textColor = [UIColor blackColor];
   
