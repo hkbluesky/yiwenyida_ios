@@ -496,6 +496,7 @@
 		5335036B201C541500EAE0F9 /* VideoEndView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEndView.m; sourceTree = "<group>"; };
 		533794CC206C80AD00DAEDAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		533794CE206C80B200DAEDAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		533794CF206C935300DAEDAA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
 		53398D151FCD60FC00336028 /* MoneyDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyDetailViewController.h; sourceTree = "<group>"; };
 		53398D161FCD60FC00336028 /* MoneyDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyDetailViewController.m; sourceTree = "<group>"; };
 		53398D3A1FCE609C00336028 /* TiXianViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TiXianViewController.h; sourceTree = "<group>"; };
@@ -3010,6 +3011,7 @@
 			children = (
 				533794CC206C80AD00DAEDAA /* Base */,
 				533794CE206C80B200DAEDAA /* en */,
+				533794CF206C935300DAEDAA /* zh-Hans */,
 			);
 			name = Info.plist;
 			path = RCloudMessage;
