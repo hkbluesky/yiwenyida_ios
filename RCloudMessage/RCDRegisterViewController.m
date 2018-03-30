@@ -144,41 +144,41 @@
                                            blue:51.0f / 255.0f
                                           alpha:1];
   [self.view addSubview:_errorMsgLb];
-//  RCUnderlineTextField *userNameTextField =
-//      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
-//
-//  userNameTextField.backgroundColor = [UIColor clearColor];
-//  userNameTextField.tag = UserTextFieldTag;
-//  //_account.placeholder=[NSString stringWithFormat:@"Email"];
-//  UIColor *color = [UIColor blackColor];
-//  userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
-//      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
-//          attributes:@{NSForegroundColorAttributeName : color}];
-//  userNameTextField.textColor = [UIColor blackColor];
-//  self.view.translatesAutoresizingMaskIntoConstraints = YES;
-//  userNameTextField.translatesAutoresizingMaskIntoConstraints = NO;
-//  userNameTextField.adjustsFontSizeToFitWidth = YES;
-//  userNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-//  [_inputBackground addSubview:userNameTextField];
-//  userNameTextField.keyboardType = UIKeyboardTypeNumberPad;
-//  if (userNameTextField.text.length > 0) {
-//    [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
-//  }
-//
-//  [userNameTextField addTarget:self
-//                        action:@selector(textFieldDidChange:)
-//              forControlEvents:UIControlEventEditingChanged];
-//  UILabel *userNameMsgLb = [[UILabel alloc] initWithFrame:CGRectZero];
-//  userNameMsgLb.text = NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil);
-//
-//  userNameMsgLb.font = [UIFont fontWithName:@"Heiti SC" size:10.0];
-//  userNameMsgLb.translatesAutoresizingMaskIntoConstraints = NO;
-////  userNameMsgLb.textColor =
-////      [[UIColor alloc] initWithRed:153 green:153 blue:153 alpha:0.5];
-//    userNameMsgLb.textColor = [UIColor blackColor];
-//  [_inputBackground addSubview:userNameMsgLb];
-//  _PhoneNumber = userNameTextField.text;
-//  userNameTextField.delegate = self;
+  RCUnderlineTextField *userNameTextField =
+      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
+
+  userNameTextField.backgroundColor = [UIColor clearColor];
+  userNameTextField.tag = UserTextFieldTag;
+  //_account.placeholder=[NSString stringWithFormat:@"Email"];
+  UIColor *color = [UIColor blackColor];
+  userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
+      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
+          attributes:@{NSForegroundColorAttributeName : color}];
+  userNameTextField.textColor = [UIColor blackColor];
+  self.view.translatesAutoresizingMaskIntoConstraints = YES;
+  userNameTextField.translatesAutoresizingMaskIntoConstraints = NO;
+  userNameTextField.adjustsFontSizeToFitWidth = YES;
+  userNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  [_inputBackground addSubview:userNameTextField];
+  userNameTextField.keyboardType = UIKeyboardTypeNumberPad;
+  if (userNameTextField.text.length > 0) {
+    [userNameTextField setFont:[UIFont fontWithName:@"Heiti SC" size:25.0]];
+  }
+
+  [userNameTextField addTarget:self
+                        action:@selector(textFieldDidChange:)
+              forControlEvents:UIControlEventEditingChanged];
+  UILabel *userNameMsgLb = [[UILabel alloc] initWithFrame:CGRectZero];
+  userNameMsgLb.text = NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil);
+
+  userNameMsgLb.font = [UIFont fontWithName:@"Heiti SC" size:10.0];
+  userNameMsgLb.translatesAutoresizingMaskIntoConstraints = NO;
+//  userNameMsgLb.textColor =
+//      [[UIColor alloc] initWithRed:153 green:153 blue:153 alpha:0.5];
+    userNameMsgLb.textColor = [UIColor blackColor];
+  [_inputBackground addSubview:userNameMsgLb];
+  _PhoneNumber = userNameTextField.text;
+  userNameTextField.delegate = self;
 
 //  RCUnderlineTextField *verificationCodeField =
 //      [[RCUnderlineTextField alloc] initWithFrame:CGRectZero];
@@ -575,16 +575,16 @@
                                     constant:0];
   [self.view addConstraint:userProtocolLabelConstraint];
   NSDictionary *inputViews = NSDictionaryOfVariableBindings(
-       rePasswordTextField,passwordTextField,
+       userNameTextField,rePasswordTextField,passwordTextField,
        recommendTextField,
       loginButton);
 
-  NSArray *inputViewConstraints = [[[[
-//      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameTextField]|"
-//                                              options:0
-//                                              metrics:nil
-//                                                views:inputViews]
-//      arrayByAddingObjectsFromArray:
+  NSArray *inputViewConstraints = [[[[[
+      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameTextField]|"
+                                              options:0
+                                              metrics:nil
+                                                views:inputViews]
+      arrayByAddingObjectsFromArray:
 //          [NSLayoutConstraint
 //              constraintsWithVisualFormat:
 //                  @"H:|[verificationCodeField][_getVerificationCodeBt]|"
@@ -609,7 +609,7 @@
               constraintsWithVisualFormat:@"H:|[passwordTextField]|"
                                   options:0
                                   metrics:nil
-                                    views:inputViews]
+                                    views:inputViews]]
       arrayByAddingObjectsFromArray:
           [NSLayoutConstraint
               constraintsWithVisualFormat:@"H:|[rePasswordTextField]|"
@@ -621,6 +621,7 @@
           [NSLayoutConstraint
               constraintsWithVisualFormat:@"V:|["
                                         @"rePasswordTextField(50)]-["
+                                        @"userNameTextField(50)]-["
                                         @"passwordTextField(60)]-["
                                             @"recommendTextField(60)]-["
                                             @"loginButton(50)]"
@@ -881,7 +882,7 @@
     //注册用户
     [AFHttpTool registerWithNickname:nickName
                             password:userPwd
-                    verficationToken:nickName
+                    verficationToken:userName
 
                              success:^(id response) {
                                  NSDictionary *regResults = response;

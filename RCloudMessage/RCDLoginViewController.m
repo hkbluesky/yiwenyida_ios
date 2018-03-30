@@ -177,7 +177,7 @@ MBProgressHUD *hud;
   //_account.placeholder=[NSString stringWithFormat:@"Email"];
   UIColor *color = [UIColor blackColor];
   userNameTextField.attributedPlaceholder = [[NSAttributedString alloc]
-      initWithString:NSLocalizedStringFromTable(@"ID", @"RongCloudKit",nil)
+      initWithString:NSLocalizedStringFromTable(@"Phone Number", @"RongCloudKit",nil)
           attributes:@{NSForegroundColorAttributeName : color}];
   userNameTextField.textColor = [UIColor blackColor];
   
@@ -809,9 +809,9 @@ arrayByAddingObjectsFromArray:
     [_pwdTextField shake];
     return NO;
   }
-  if (userName.length != 8) {
-    return NO;
-  }
+//  if (userName.length != 8) {
+//    return NO;
+//  }
   if ([RCDTextFieldValidate validatePassword:userPwd] == NO) {
     return NO;
   }
