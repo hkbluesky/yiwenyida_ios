@@ -371,7 +371,7 @@
 #pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scrollView.contentSize = CGSizeMake(375, 800);
+    
     self.titleName.text = [RCIM sharedRCIM].currentUserInfo.name;
     NSURL *iconUrl = [NSURL URLWithString:[DEFAULTS objectForKey:@"userPortraitUri"]];
     [self.titleImage sd_setImageWithURL:iconUrl];
@@ -395,6 +395,7 @@
 }
 #pragma mark - viewWillAppear
 -(void)viewWillAppear:(BOOL)animated{
+    self.scrollView.contentSize = CGSizeMake(375, 800);
     //更新头像
     NSString *p = [NSString stringWithFormat:@"http://ask.vipjingjie.com/moblie/getPortraitUri?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
     NSURL *purl = [NSURL URLWithString:p];
