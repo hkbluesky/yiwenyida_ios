@@ -56,9 +56,33 @@
     }else{
         NSString *str1 = [NSString stringWithFormat:@"https://ask.vipjingjie.com/moblie/app/index?userid=%@",[RCIM sharedRCIM].currentUserInfo.userId];
         NSString *str2 = [NSString stringWithFormat:@"&locate=%@",[self getPreferredLanguage]];
-        NSURL *url = [NSURL URLWithString:[str1 stringByAppendingString:str2]];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
+        NSString *urlStr = [str1 stringByAppendingString:str2];
+        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES) objectAtIndex:0];
+        
+        NSString * path = [cachesPath stringByAppendingString:[NSString stringWithFormat:@"/Caches/%lu.html",(unsigned long)[urlStr hash]]];
+        
+        NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        
+        
+        
+        if (!(htmlString ==nil || [htmlString isEqualToString:@""])) {
+            
+            //[self.webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:urlStr]];
+            NSURL *url = [NSURL URLWithString:path];
+            
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            [self.webView loadRequest:request];
+        }else{
+            
+            NSURL *url = [NSURL URLWithString:urlStr];
+            
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            
+            [self.webView loadRequest:request];
+            
+            [self writeToCache:urlStr];
+            
+        }
     }
     [self performSelector:@selector(updateTitle) withObject:nil];
     
@@ -73,7 +97,7 @@
         NSString *result = [accessDict objectForKey:@"result"];
         if([result isEqualToString:@"1"]){
             NSString *aike = [accessDict objectForKey:@"aike"];
-            [weakSelf performSelectorOnMainThread:@selector(updateText:) withObject:aike waitUntilDone:YES];
+            [weakSelf performSelectorOnMainThread:@selector(updateText:) withObject:aike waitUntilDone:NO];
         }
     }];
     [dataTask resume];
@@ -402,6 +426,31 @@
                                                   otherButtonTitles:nil, nil];
         [alertView show];
     }
+    
+}
+- (void)writeToCache:(NSString *)urlStr
+
+{
+    
+    NSString * htmlResponseStr = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlStr]encoding:NSUTF8StringEncoding error:Nil];
+    
+    //创建文件管理器
+    
+    NSFileManager *fileManager = [[NSFileManager alloc]init];
+    
+    //获取document路径
+    
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,      NSUserDomainMask, YES) objectAtIndex:0];
+    
+    [fileManager createDirectoryAtPath:[cachesPath stringByAppendingString:@"/Caches"]withIntermediateDirectories:YES attributes:nil error:nil];
+    
+    //写入路径
+    
+    NSString * path = [cachesPath stringByAppendingString:[NSString stringWithFormat:@"/Caches/%lu.html",(unsigned long)[urlStr hash]]];
+    
+    
+    
+    [htmlResponseStr writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
 }
 @end
