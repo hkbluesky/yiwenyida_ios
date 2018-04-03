@@ -71,6 +71,7 @@
 		5326E8BC2064E193009B4B23 /* PersonnalPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5326E8BB2064E193009B4B23 /* PersonnalPageViewController.m */; };
 		533472D8203D4AB200A7FFD8 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533472D7203D4AB200A7FFD8 /* TestViewController.m */; };
 		5335036C201C541500EAE0F9 /* VideoEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5335036B201C541500EAE0F9 /* VideoEndView.m */; };
+		53357A942073148E00E17CFB /* AppInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53357A932073148E00E17CFB /* AppInfoViewController.m */; };
 		533794D0206C974900DAEDAA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4E939C21AD65D58001E0AC6 /* Info.plist */; };
 		53398D141FCD132E00336028 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AD4A581CAE5766006C1CBB /* MobileCoreServices.framework */; };
 		53398D171FCD60FC00336028 /* MoneyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53398D161FCD60FC00336028 /* MoneyDetailViewController.m */; };
@@ -105,6 +106,7 @@
 		534D207C204E7D2B00E4CEB9 /* VideoEndView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 534D207E204E7D2B00E4CEB9 /* VideoEndView.xib */; };
 		534E25BC1FB582EE005CABD4 /* RCChrisMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 534E25BB1FB582EE005CABD4 /* RCChrisMessage.m */; };
 		534E25BF1FB58E01005CABD4 /* RCDChrisMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534E25BE1FB58E01005CABD4 /* RCDChrisMessageCell.m */; };
+		5367B8B020723A6A008482FC /* appInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5367B8B220723A6A008482FC /* appInfo.storyboard */; };
 		536D8C7E1FA2E2F2003DD5B8 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D8C7C1FA2E2F1003DD5B8 /* LinkViewController.m */; };
 		536D8C811FA2E633003DD5B8 /* QuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D8C7F1FA2E633003DD5B8 /* QuanViewController.m */; };
 		536D8C831FA30086003DD5B8 /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 536D8C821FA30086003DD5B8 /* yw_1222.jpg */; };
@@ -495,6 +497,8 @@
 		533472D7203D4AB200A7FFD8 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		5335036A201C541500EAE0F9 /* VideoEndView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEndView.h; sourceTree = "<group>"; };
 		5335036B201C541500EAE0F9 /* VideoEndView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEndView.m; sourceTree = "<group>"; };
+		53357A922073148E00E17CFB /* AppInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInfoViewController.h; sourceTree = "<group>"; };
+		53357A932073148E00E17CFB /* AppInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppInfoViewController.m; sourceTree = "<group>"; };
 		53398D151FCD60FC00336028 /* MoneyDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyDetailViewController.h; sourceTree = "<group>"; };
 		53398D161FCD60FC00336028 /* MoneyDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyDetailViewController.m; sourceTree = "<group>"; };
 		53398D3A1FCE609C00336028 /* TiXianViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TiXianViewController.h; sourceTree = "<group>"; };
@@ -559,6 +563,8 @@
 		534E25BB1FB582EE005CABD4 /* RCChrisMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCChrisMessage.m; sourceTree = "<group>"; };
 		534E25BD1FB58E01005CABD4 /* RCDChrisMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCDChrisMessageCell.h; sourceTree = SOURCE_ROOT; };
 		534E25BE1FB58E01005CABD4 /* RCDChrisMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCDChrisMessageCell.m; sourceTree = SOURCE_ROOT; };
+		5367B8B120723A6A008482FC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/appInfo.storyboard"; sourceTree = "<group>"; };
+		5367B8B520723A88008482FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/appInfo.storyboard; sourceTree = "<group>"; };
 		536D8C7C1FA2E2F1003DD5B8 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = SOURCE_ROOT; };
 		536D8C7D1FA2E2F2003DD5B8 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = SOURCE_ROOT; };
 		536D8C7F1FA2E633003DD5B8 /* QuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuanViewController.m; sourceTree = SOURCE_ROOT; };
@@ -1442,6 +1448,9 @@
 				539D4D1D205FA4BB00EB6098 /* ForgetPsd.storyboard */,
 				537CA2602063C592001C4AED /* PsdViewController.h */,
 				537CA2612063C592001C4AED /* PsdViewController.m */,
+				5367B8B220723A6A008482FC /* appInfo.storyboard */,
+				53357A922073148E00E17CFB /* AppInfoViewController.h */,
+				53357A932073148E00E17CFB /* AppInfoViewController.m */,
 			);
 			path = Chris;
 			sourceTree = "<group>";
@@ -2660,6 +2669,7 @@
 				2E7A36E21E03A876005231BE /* jrmf.cer in Resources */,
 				A6CF8A351BD4CB6E00F3EA1A /* RCConfig.plist in Resources */,
 				E4BFAE251A121839007165B1 /* Images.xcassets in Resources */,
+				5367B8B020723A6A008482FC /* appInfo.storyboard in Resources */,
 				534D206B204539AD00E4CEB9 /* Info.plist in Resources */,
 				534D207C204E7D2B00E4CEB9 /* VideoEndView.xib in Resources */,
 				510624851AD63A9E00348452 /* RongCloudKit.strings in Resources */,
@@ -2846,6 +2856,7 @@
 				980EF4561D373BE0000C26FC /* RCDGroupAnnouncementViewController.m in Sources */,
 				53E372F91FC96EB500003560 /* MyMoneyViewController.m in Sources */,
 				E4BFAE6B1A121A13007165B1 /* RCDGroupViewController.m in Sources */,
+				53357A942073148E00E17CFB /* AppInfoViewController.m in Sources */,
 				9B447DEA1CF82926005D3ED5 /* RCDContactViewController.m in Sources */,
 				E4E9396F1AD65A95001E0AC6 /* UIImage+WebP.m in Sources */,
 				17F7A84D1DAE187200E27D25 /* RCDSearchViewController.m in Sources */,
@@ -3024,6 +3035,15 @@
 				534D2082204E7D6D00E4CEB9 /* zh-Hans */,
 			);
 			name = VideoEndView.xib;
+			sourceTree = "<group>";
+		};
+		5367B8B220723A6A008482FC /* appInfo.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5367B8B120723A6A008482FC /* zh-Hans */,
+				5367B8B520723A88008482FC /* en */,
+			);
+			name = appInfo.storyboard;
 			sourceTree = "<group>";
 		};
 		539D4D1D205FA4BB00EB6098 /* ForgetPsd.storyboard */ = {

@@ -331,5 +331,7 @@
 "He is inconvenient for video calls now" = "他(她)现在不方便视频通话";
 "He is inconvenient for voice calls now" = "他(她)现在不方便语音通话";
 "Invalid Number" = "数字错误";
-"ID" = "用户代码";
-"Show ID" = "用户代码:";
+"ID" = "问答号";
+"Show ID" = "问答号:";
+"Apply Protocol" = "请同意服务协议";
+"Please check the network" = "当前网络不可用，请检查！";

@@ -18,6 +18,7 @@
 #import <RongIMLib/RongIMLib.h>
 #import "UIColor+RCColor.h"
 #import "PsdViewController.h"
+#import "AppInfoViewController.h"
 @interface RCDRegisterViewController () <UITextFieldDelegate>
 @property(unsafe_unretained, nonatomic) IBOutlet UITextField *tfEmail;
 @property(unsafe_unretained, nonatomic) IBOutlet UITextField *tfNickName;
@@ -33,6 +34,7 @@
 @property(nonatomic, strong) UILabel *errorMsgLb;
 @property(strong, nonatomic) IBOutlet UILabel *countDownLable;
 @property(strong, nonatomic) IBOutlet UIButton *getVerificationCodeBt;
+@property (nonatomic,strong) UIButton *checkbox;
 @end
 
 @implementation RCDRegisterViewController {
@@ -400,6 +402,30 @@
 //  [bottomBackground addSubview:footerLabel];
 
   [self.view addSubview:bottomBackground];
+    UIView *blankView = [[UIView alloc]initWithFrame:CGRectZero];
+    blankView.contentMode = UIViewContentModeScaleAspectFit;
+    blankView.translatesAutoresizingMaskIntoConstraints = NO;
+    [_inputBackground addSubview:blankView];
+    _checkbox = [[UIButton alloc]initWithFrame:CGRectZero];
+    _checkbox.frame = CGRectMake(0, 0, 20, 20);
+    [_checkbox setImage:[UIImage imageNamed:@"checkbox"] forState:UIControlStateNormal];
+    [_checkbox setImage:[UIImage imageNamed:@"checkbox2"] forState:UIControlStateSelected];
+    [_checkbox addTarget:self action:@selector(checkboxClick:) forControlEvents:UIControlEventTouchUpInside];
+    [blankView addSubview:_checkbox];
+    UILabel *appInfoLbl = [[UILabel alloc]initWithFrame:CGRectMake(22, 0, 250, 20)];
+    if([[self getPreferredLanguage] isEqualToString:@"zh"]){
+        appInfoLbl.text = @"1问1答MoneyCall软件许可及服务协议";
+    }else{
+        appInfoLbl.text = @"MoneyCall Licensing and Protocol";
+    }
+    
+    UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelClick)];
+    [appInfoLbl addGestureRecognizer:labelTapGestureRecognizer];
+    appInfoLbl.userInteractionEnabled = YES;
+//    appInfoLbl.adjustsFontSizeToFitWidth = YES;
+    appInfoLbl.font = [UIFont fontWithName:@"Heiti SC" size:14.0];
+    [appInfoLbl setTextColor:[UIColor grayColor]];
+    [blankView addSubview:appInfoLbl];
 
 //  [self.view addConstraint:[NSLayoutConstraint
 //                               constraintWithItem:userNameMsgLb
@@ -576,10 +602,10 @@
   [self.view addConstraint:userProtocolLabelConstraint];
   NSDictionary *inputViews = NSDictionaryOfVariableBindings(
        userNameTextField,rePasswordTextField,passwordTextField,
-       recommendTextField,
+       recommendTextField,blankView,
       loginButton);
 
-  NSArray *inputViewConstraints = [[[[[
+  NSArray *inputViewConstraints = [[[[[[
       [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameTextField]|"
                                               options:0
                                               metrics:nil
@@ -624,6 +650,7 @@
                                         @"userNameTextField(50)]-["
                                         @"passwordTextField(60)]-["
                                             @"recommendTextField(60)]-["
+                                            @"blankView(20)]-["
                                             @"loginButton(50)]"
                                   options:0
                                   metrics:nil
@@ -641,6 +668,11 @@
                                 options:0
                                 metrics:nil
                                 views:inputViews]]
+       arrayByAddingObjectsFromArray:
+       [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[blankView]|"
+                                               options:0
+                                               metrics:nil
+                                                 views:inputViews]]
       arrayByAddingObjectsFromArray:
           [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[loginButton]|"
                                                   options:0
@@ -752,6 +784,7 @@
   [super viewWillAppear:animated];
 
   [self.animatedImagesView startAnimating];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -863,7 +896,10 @@
 - (IBAction)btnDoneClicked:(id)sender {
   if (![self checkContent])
     return;
-    
+    if(!self.checkbox.selected){
+         _errorMsgLb.text = NSLocalizedStringFromTable(@"Apply Protocol", @"RongCloudKit",nil);
+        return;
+    }
   RCNetworkStatus status =
       [[RCIMClient sharedRCIMClient] getCurrentNetworkStatus];
 
@@ -1048,5 +1084,22 @@ preparation before navigation
     }else{
         return @"en";
     }
+}
+-(void)checkboxClick:(UIButton *)btn{
+    btn.selected = !btn.selected;
+}
+-(void)labelClick{
+//    UIView *appInfoView = [[[NSBundle mainBundle] loadNibNamed:@"appInfo" owner:self options:nil] firstObject];
+//    UIViewController *vc = [[UIViewController alloc]init];
+//    vc.view = appInfoView;
+//    appInfoView.frame = vc.view.frame;
+//    [self.navigationController pushViewController:vc animated:YES];
+//    [vc.navigationController setNavigationBarHidden:NO animated:YES];
+////    vc.navigationController.navigationItem.title = @"1问1答MoneyCall软件许可及服务协议";
+//    vc.tabBarItem.title = @"1问1答MoneyCall软件许可及服务协议";
+    UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"appInfo" bundle:nil];
+    
+    AppInfoViewController *vc = [meStoryboard instantiateViewControllerWithIdentifier:@"appInfo"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
