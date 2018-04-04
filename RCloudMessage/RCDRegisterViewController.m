@@ -784,7 +784,7 @@
   [super viewWillAppear:animated];
 
   [self.animatedImagesView startAnimating];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
