@@ -197,9 +197,7 @@
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    if([request.URL.absoluteString containsString:@"index"]){
-        self.tabBarController.navigationItem.leftBarButtonItems = nil;
-    }else{
+    if([request.URL.absoluteString containsString:@"app"]){
         RCDUIBarButtonItem *leftbtn =
         [[RCDUIBarButtonItem alloc] initContainImage:[UIImage imageNamed:@"goback"]
                                       imageViewFrame:CGRectMake(0, 6, 24, 24)
@@ -210,6 +208,8 @@
                                               target:self
                                               action:@selector(goback)];
         self.tabBarController.navigationItem.leftBarButtonItems = [leftbtn setTranslation:leftbtn translation:0];
+    }else{
+        self.tabBarController.navigationItem.leftBarButtonItems = nil;
     }
     return YES;
 }

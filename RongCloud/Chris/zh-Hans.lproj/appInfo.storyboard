@@ -6772,11 +6772,25 @@ Cg
                                         </attributedString>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1g-fe-0Fd">
+                                        <rect key="frame" x="8" y="0.0" width="55" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="1RF-Dy-be5"/>
+                                            <constraint firstAttribute="height" constant="30" id="WNc-E0-KdY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="17"/>
+                                        <state key="normal" title="返 回"/>
+                                        <connections>
+                                            <action selector="goBackClick:" destination="aN0-Fi-EHV" eventType="touchUpInside" id="fhR-nm-Xgx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="TZI-rf-Q6F" firstAttribute="top" secondItem="GiY-ji-bYv" secondAttribute="top" id="79C-xw-P9g"/>
+                                    <constraint firstItem="o1g-fe-0Fd" firstAttribute="leading" secondItem="GiY-ji-bYv" secondAttribute="leading" constant="8" id="FKM-8w-w72"/>
                                     <constraint firstAttribute="bottom" secondItem="TZI-rf-Q6F" secondAttribute="bottom" id="GrR-XQ-qTg"/>
+                                    <constraint firstItem="o1g-fe-0Fd" firstAttribute="top" secondItem="GiY-ji-bYv" secondAttribute="top" id="fNy-dI-tNo"/>
                                     <constraint firstItem="TZI-rf-Q6F" firstAttribute="leading" secondItem="GiY-ji-bYv" secondAttribute="leading" id="jQP-2s-kPL"/>
                                     <constraint firstAttribute="trailing" secondItem="TZI-rf-Q6F" secondAttribute="trailing" id="trv-k5-XVT"/>
                                 </constraints>
@@ -6792,13 +6806,14 @@ Cg
                         <viewLayoutGuide key="safeArea" id="VXS-Wt-Hpv"/>
                     </view>
                     <connections>
+                        <outlet property="goBackBtn" destination="o1g-fe-0Fd" id="jTH-To-XV2"/>
                         <outlet property="textView" destination="TZI-rf-Q6F" id="CBi-qI-nfl"/>
                         <outlet property="view" destination="SIJ-uo-KMo" id="rzS-LG-41Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmb-nj-jFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78" y="175"/>
+            <point key="canvasLocation" x="77.599999999999994" y="174.96251874062969"/>
         </scene>
     </scenes>
 </document>

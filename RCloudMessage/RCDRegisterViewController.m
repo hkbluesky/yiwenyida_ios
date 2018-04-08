@@ -407,12 +407,12 @@
     blankView.translatesAutoresizingMaskIntoConstraints = NO;
     [_inputBackground addSubview:blankView];
     _checkbox = [[UIButton alloc]initWithFrame:CGRectZero];
-    _checkbox.frame = CGRectMake(0, 0, 20, 20);
+    _checkbox.frame = CGRectMake(0,10, 20, 20);
     [_checkbox setImage:[UIImage imageNamed:@"checkbox"] forState:UIControlStateNormal];
     [_checkbox setImage:[UIImage imageNamed:@"checkbox2"] forState:UIControlStateSelected];
     [_checkbox addTarget:self action:@selector(checkboxClick:) forControlEvents:UIControlEventTouchUpInside];
     [blankView addSubview:_checkbox];
-    UILabel *appInfoLbl = [[UILabel alloc]initWithFrame:CGRectMake(22, 0, 250, 20)];
+    UILabel *appInfoLbl = [[UILabel alloc]initWithFrame:CGRectMake(22,10, 250, 20)];
     if([[self getPreferredLanguage] isEqualToString:@"zh"]){
         appInfoLbl.text = @"1问1答MoneyCall软件许可及服务协议";
     }else{
@@ -648,9 +648,9 @@
               constraintsWithVisualFormat:@"V:|["
                                         @"rePasswordTextField(50)]-["
                                         @"userNameTextField(50)]-["
-                                        @"passwordTextField(60)]-["
-                                            @"recommendTextField(60)]-["
-                                            @"blankView(20)]-["
+                                        @"passwordTextField(50)]-["
+                                            @"recommendTextField(50)]-["
+                                            @"blankView(40)]-["
                                             @"loginButton(50)]"
                                   options:0
                                   metrics:nil

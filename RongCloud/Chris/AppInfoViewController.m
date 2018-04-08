@@ -8,8 +8,9 @@
 
 #import "AppInfoViewController.h"
 
-@interface AppInfoViewController ()
+@interface AppInfoViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIButton *goBackBtn;
 
 @end
 
@@ -25,7 +26,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    self.goBackBtn.hidden = YES;
+}
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    self.goBackBtn.hidden = NO;
+}
+- (IBAction)goBackClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 /*
 #pragma mark - Navigation
 
