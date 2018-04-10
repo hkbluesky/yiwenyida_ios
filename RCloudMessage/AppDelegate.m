@@ -91,7 +91,7 @@
 //    self.window.rootViewController = _navi;
     
   //启动页停留1秒钟。
-  //[NSThread sleepForTimeInterval:1.0];
+  [NSThread sleepForTimeInterval:1.0];
   
   
     
@@ -221,18 +221,18 @@
   NSString *userNickName = [DEFAULTS objectForKey:@"userNickName"];
   NSString *userPortraitUri = [DEFAULTS objectForKey:@"userPortraitUri"];
     
-    NSUserDefaults *myUD=[NSUserDefaults standardUserDefaults];
+//    NSUserDefaults *myUD=[NSUserDefaults standardUserDefaults];
     
-    if(![myUD boolForKey:@"firstStart"])
-    {
-        [myUD setBool:YES forKey:@"firstStart"];
-        [myUD synchronize];//同步
-        NSLog(@"第一次启动");
-        UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"lach" bundle:nil];
-        LaunchViewController *launchVC = [meStoryboard instantiateViewControllerWithIdentifier:@"lach"];
-        RCDNavigationViewController *rootNavi = [[RCDNavigationViewController alloc] initWithRootViewController:launchVC];
-        self.window.rootViewController = rootNavi;
-    }else{
+//    if(![myUD boolForKey:@"firstStart"])
+//    {
+//        [myUD setBool:YES forKey:@"firstStart"];
+//        [myUD synchronize];//同步
+//        NSLog(@"第一次启动");
+//        UIStoryboard *meStoryboard = [UIStoryboard storyboardWithName:@"lach" bundle:nil];
+//        LaunchViewController *launchVC = [meStoryboard instantiateViewControllerWithIdentifier:@"lach"];
+//        RCDNavigationViewController *rootNavi = [[RCDNavigationViewController alloc] initWithRootViewController:launchVC];
+//        self.window.rootViewController = rootNavi;
+//    }else{
         NSLog(@"不是第一次启动");
         if (token.length && userId.length && password.length) {
             RCDMainTabBarViewController *mainTabBarVC = [[RCDMainTabBarViewController alloc] init];
@@ -317,7 +317,7 @@
             
             self.window.rootViewController = _navi;
         }
-    }
+//    }
   
 
   /**

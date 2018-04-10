@@ -208,7 +208,7 @@
 	<key>UIFileSharingEnabled</key>
 	<false/>
 	<key>UILaunchStoryboardName</key>
-	<string>lach</string>
+	<string>Launch Screen2</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
