@@ -64,6 +64,10 @@ typedef NS_ENUM(NSInteger, RequestMethodType) {
                      success:(void (^)(id response))success
                      failure:(void (^)(NSError *err))failure;
 
+// chris
++ (void)registerAsGuest:(void (^)(id response))success
+                failure:(void (^)(NSError *err))failure;
+
 // modify nickname
 + (void)modifyNickname:(NSString *)userId
               nickname:(NSString *)nickname

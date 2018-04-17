@@ -188,6 +188,7 @@ UIWebView *rpView;
     [self.pluginBoardView removeItemAtIndex:2];
     [self.pluginBoardView removeItemAtIndex:5];
     [self.pluginBoardView removeItemAtIndex:5];
+    [self.pluginBoardView removeItemAtIndex:6];
     //[self.pluginBoardView removeItemAtIndex:4];
     //    self.chatSessionInputBarControl.hidden = YES;
     //    CGRect intputTextRect = self.conversationMessageCollectionView.frame;

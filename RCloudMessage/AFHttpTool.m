@@ -197,6 +197,17 @@
                         failure:failure];
 }
 
+// Chris 游客注册
++ (void)registerAsGuest:(void (^)(id response))success
+                failure:(void (^)(NSError *err))failure {
+    NSDictionary *params = @{};
+    [AFHttpTool requestWihtMethod:RequestMethodTypePost
+                              url:@"/reglogin"
+                           params:params
+                          success:success
+                          failure:failure];
+}
+
 // login
 + (void)loginWithPhone:(NSString *)phone
               password:(NSString *)password
