@@ -90,10 +90,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9q-4H-4C8" userLabel="block1">
                                 <rect key="frame" x="0.0" y="96" width="375" height="152"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我来决定咨询时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6H-Cc-Cmu">
-                                        <rect key="frame" x="8" y="0.0" width="139" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我来决定咨询时间(北京时间)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6H-Cc-Cmu">
+                                        <rect key="frame" x="8" y="0.0" width="200" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="139" id="Fkv-RF-w5Y"/>
+                                            <constraint firstAttribute="width" constant="200" id="Fkv-RF-w5Y"/>
                                             <constraint firstAttribute="height" constant="20" id="veo-Kd-b1N"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>

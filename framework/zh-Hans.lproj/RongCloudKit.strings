@@ -245,12 +245,12 @@
 "MeTableViewTabBarTitle"="我";
 "GroupMembers"="全部群成员";
 "cannotSendMessage"="发送失败";
-"aikeNotEnough"="爱可币不足或服务器错误";
+"aikeNotEnough"="爱可豆不足或服务器错误";
 "Modification Failure"="无法修改";
 "Invalid Date"="选择的时间不正确";
 "Server Error"="服务器错误";
-"Setting Per Minute Aike"="请输入每分钟多少爱可币";
-"Setting Per Message Aike"="请输入每条信息多少爱可币";
+"Setting Per Minute Aike"="请输入每分钟多少爱可豆";
+"Setting Per Message Aike"="请输入每条信息多少爱可豆";
 "Please Enter Aike"="请输入金额";
 "Location Sharing"="位置实时分享";
 "Send Location"="发送位置";
@@ -327,7 +327,7 @@
 "Setting Success" = "设置成功";
 "Login Failure,please retry" = "登录失效，请重新登录。";
 "Your account has been banned" = "您的帐号被封禁";
-"Your excoin is less for ten minutes, please add value" = "你的爱可币不足以通话十分钟，请充值";
+"Your excoin is less for ten minutes, please add value" = "你的爱可豆不足以通话十分钟，请充值";
 "He is inconvenient for video calls now" = "他(她)现在不方便视频通话";
 "He is inconvenient for voice calls now" = "他(她)现在不方便语音通话";
 "Invalid Number" = "数字错误";

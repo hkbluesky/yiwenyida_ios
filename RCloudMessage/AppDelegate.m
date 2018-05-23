@@ -234,11 +234,11 @@
 //        self.window.rootViewController = rootNavi;
 //    }else{
 //        NSLog(@"不是第一次启动");
-//    [AFHttpTool registerAsGuest:^(id response) {
-//        NSLog(@"success");
-//    } failure:^(NSError *err) {
-//        NSLog(@"failure");
-//    }];
+    [AFHttpTool registerAsGuest:^(id response) {
+        NSString *code = response[@"code"];
+    } failure:^(NSError *err) {
+        NSLog(@"failure");
+    }];
         if (token.length && userId.length && password.length) {
             RCDMainTabBarViewController *mainTabBarVC = [[RCDMainTabBarViewController alloc] init];
             RCDNavigationViewController *rootNavi = [[RCDNavigationViewController alloc] initWithRootViewController:mainTabBarVC];
@@ -316,6 +316,7 @@
                                  }];
             
         } else {
+
             RCDLoginViewController *vc = [[RCDLoginViewController alloc] init];
             RCDNavigationViewController *_navi = [[RCDNavigationViewController alloc]
                                                   initWithRootViewController:vc];

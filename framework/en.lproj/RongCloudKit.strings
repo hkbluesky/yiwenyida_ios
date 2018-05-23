@@ -250,8 +250,8 @@
 "Modification Failure"="Failure";
 "Invalid Date"="Invalid Date";
 "Server Error"="Server Error";
-"Setting Per Minute Aike"="Please enter the number of Excoin per minutes";
-"Setting Per Message Aike"="Please enter the number of Excoin per message";
+"Setting Per Minute Aike"="Please enter the number of Exbean per minutes";
+"Setting Per Message Aike"="Please enter the number of Exbean per message";
 "Please Enter Aike"="Please enter the price";
 "Location Sharing"="Location Sharing";
 "Send Location"="Send Location";
@@ -328,7 +328,7 @@
 "Setting Success" = "Setting Success";
 "Login Failure,please retry" = "Login Failure,please retry";
 "Your account has been banned" = "Your account has been banned";
-"Your excoin is less for ten minutes, please add value" = "Your excoin is less for ten minutes, please add value";
+"Your Exbean is less for ten minutes, please add value" = "Your Exbean is less for ten minutes, please add value";
 "He is inconvenient for video calls now" = "He(She) is inconvenient for video calls now";
 "He is inconvenient for voice calls now" = "He(She) is inconvenient for voice calls now";
 "Invalid Number" = "Invalid Number";

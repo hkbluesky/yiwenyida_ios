@@ -202,7 +202,7 @@
                 failure:(void (^)(NSError *err))failure {
     NSDictionary *params = @{};
     [AFHttpTool requestWihtMethod:RequestMethodTypePost
-                              url:@"/reglogin"
+                              url:@"user/reglogin"
                            params:params
                           success:success
                           failure:failure];

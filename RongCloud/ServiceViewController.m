@@ -17,20 +17,22 @@
 #import "RCDUIBarButtonItem.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <RongCallKit/RongCallKit.h>
-@interface ServiceViewController ()<UIWebViewDelegate>
+#import <RongCallLib/RongCallLib.h>
+@interface ServiceViewController ()<UIWebViewDelegate,RCCallSessionDelegate>
 @property (nonatomic,strong) UIWebView *webView;
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong) NSTimer *timer2;
 @property (nonatomic,strong) NSTimer *timer3;
 @property (nonatomic,strong) NSTimer *stopTimer;
 @property (nonatomic,copy) NSString *videoPrice;
-@property (nonatomic,assign) int i;
+@property (atomic,assign) int i;
 @property (nonatomic,assign) BOOL ifsend;
-@property (nonatomic,assign) int y;
+@property (atomic,assign) int y;
 @property (nonatomic,copy) NSString *targetId;
 @end
 
 @implementation ServiceViewController{
+    dispatch_source_t stimer;
     dispatch_source_t dtimer;
     dispatch_source_t dtimer2;
 }
@@ -120,16 +122,55 @@
 -(void)startVideoCall{
     [[RCCall sharedRCCall] startSingleCall:self.targetId
                                  mediaType:RCCallMediaVideo];
-    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(checkCallState) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+//    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(checkCallState) userInfo:nil repeats:YES];
+//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     self.i=0;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(0,0);
+    
+    // 创建GCD定时器
+    stimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    
+    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC); // 开始时间
+    uint64_t interval = 1 * NSEC_PER_SEC; // 时间间隔
+    
+    // 设置GCD定时器开始时间，间隔时间
+    dispatch_source_set_timer(stimer, start, interval, 0);
+    
+    // GCD定时器处理回调方法
+    dispatch_source_set_event_handler(stimer, ^{
+        NSLog(@"---------%@", [NSThread currentThread]);
+        [self checkCallState];
+    });
+    
+    // GCD定时器启动，默认是关闭的
+    dispatch_resume(stimer);
 }
 -(void)startVoiceCall{
     [[RCCall sharedRCCall] startSingleCall:self.targetId
                                  mediaType:RCCallMediaAudio];
-    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(checkCallState) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+//    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(checkCallState) userInfo:nil repeats:YES];
+//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     self.i=0;
+    dispatch_queue_t queue = dispatch_get_global_queue(0,0);
+    
+    // 创建GCD定时器
+    stimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    
+    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC); // 开始时间
+    uint64_t interval = 1 * NSEC_PER_SEC; // 时间间隔
+    
+    // 设置GCD定时器开始时间，间隔时间
+    dispatch_source_set_timer(stimer, start, interval, 0);
+    
+    // GCD定时器处理回调方法
+    dispatch_source_set_event_handler(stimer, ^{
+        NSLog(@"---------%@", [NSThread currentThread]);
+        [self checkCallState];
+    });
+    
+    // GCD定时器启动，默认是关闭的
+    dispatch_resume(stimer);
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
@@ -224,8 +265,10 @@
 //视频语音计费相关
 -(void)checkCallState{
     if([[[RCCall sharedRCCall] currentCallSession]callStatus]==RCCallActive){
-        [self.timer invalidate];
-        self.timer = nil;
+//        [self.timer invalidate];
+//        self.timer = nil;
+        dispatch_source_cancel(stimer); // 异步取消调度源
+        stimer = nil;
         self.y = 0;//y是用来记扣费次数的，用来算最终视频扣费
 //        if([self videoAndAudioFee]){
 //            self.timer2 = [NSTimer timerWithTimeInterval:60.0 target:self selector:@selector(videoAndAudioFee) userInfo:nil repeats:YES];
@@ -234,47 +277,49 @@
 //            self.timer3 = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(countTime) userInfo:nil repeats:YES];
 //            [[NSRunLoop currentRunLoop] addTimer:self.timer3 forMode:NSRunLoopCommonModes];
 //        }
-        dispatch_queue_t queue = dispatch_get_main_queue();
-        
-        // 创建GCD定时器
-        dtimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-        
-        dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC); // 开始时间
-        uint64_t interval = 60 * NSEC_PER_SEC; // 时间间隔
-        
-        // 设置GCD定时器开始时间，间隔时间
-        dispatch_source_set_timer(dtimer, start, interval, 0);
-        
-        // GCD定时器处理回调方法
-        dispatch_source_set_event_handler(dtimer, ^{
-            NSLog(@"---------%@", [NSThread currentThread]);
-            [self videoAndAudioFee];
-        });
-        
-        // GCD定时器启动，默认是关闭的
-        dispatch_resume(dtimer);
-        self.i=0;
-        //            self.timer3 = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(countTime) userInfo:nil repeats:YES];
-        //            [[NSRunLoop currentRunLoop] addTimer:self.timer3 forMode:NSRunLoopCommonModes];
-        dispatch_queue_t queue2 = dispatch_get_main_queue();
-        
-        // 创建GCD定时器
-        dtimer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue2);
-        
-        dispatch_time_t start2 = dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC); // 开始时间
-        uint64_t interval2 = 1 * NSEC_PER_SEC; // 时间间隔
-        
-        // 设置GCD定时器开始时间，间隔时间
-        dispatch_source_set_timer(dtimer2, start2, interval2, 0);
-        
-        // GCD定时器处理回调方法
-        dispatch_source_set_event_handler(dtimer2, ^{
-            NSLog(@"---------%@", [NSThread currentThread]);
-            [self countTime];
-        });
-        
-        // GCD定时器启动，默认是关闭的
-        dispatch_resume(dtimer2);
+        if([self videoAndAudioFee]){
+            dispatch_queue_t queue = dispatch_get_global_queue(0,0);
+            
+            // 创建GCD定时器
+            dtimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+            
+            dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC); // 开始时间
+            uint64_t interval = 60 * NSEC_PER_SEC; // 时间间隔
+            
+            // 设置GCD定时器开始时间，间隔时间
+            dispatch_source_set_timer(dtimer, start, interval, 0);
+            
+            // GCD定时器处理回调方法
+            dispatch_source_set_event_handler(dtimer, ^{
+                NSLog(@"---------%@", [NSThread currentThread]);
+                [self videoAndAudioFee];
+            });
+            
+            // GCD定时器启动，默认是关闭的
+            dispatch_resume(dtimer);
+            self.i=0;
+            //            self.timer3 = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(countTime) userInfo:nil repeats:YES];
+            //            [[NSRunLoop currentRunLoop] addTimer:self.timer3 forMode:NSRunLoopCommonModes];
+            dispatch_queue_t queue2 = dispatch_get_main_queue();
+            
+            // 创建GCD定时器
+            dtimer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue2);
+            
+            dispatch_time_t start2 = dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC); // 开始时间
+            uint64_t interval2 = 1 * NSEC_PER_SEC; // 时间间隔
+            
+            // 设置GCD定时器开始时间，间隔时间
+            dispatch_source_set_timer(dtimer2, start2, interval2, 0);
+            
+            // GCD定时器处理回调方法
+            dispatch_source_set_event_handler(dtimer2, ^{
+                NSLog(@"---------%@", [NSThread currentThread]);
+                [self countTime];
+            });
+            
+            // GCD定时器启动，默认是关闭的
+            dispatch_resume(dtimer2);
+        }
     }
 }
 -(BOOL)videoAndAudioFee{
@@ -323,7 +368,7 @@
             [veView putTextLabel3:str3];
         }
         
-        [self performSelectorOnMainThread:@selector(delayView:) withObject:veView waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(delayView:) withObject:veView waitUntilDone:NO];
         return NO;
         
     }
@@ -367,7 +412,7 @@
         dtimer2 = nil; // 将 dispatch_source_t 置为nil
         //        [super.navigationController setNavigationBarHidden:YES animated:YES];
         //        self.tabBarController.tabBar.hidden = YES;
-        [self performSelectorOnMainThread:@selector(delayView:) withObject:veView waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(delayView:) withObject:veView waitUntilDone:NO];
         
     }
     
@@ -453,4 +498,5 @@
     [htmlResponseStr writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
 }
+
 @end

@@ -19,7 +19,6 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     
     if(self==[super initWithFrame:frame]){
-        
         self=[[[NSBundle mainBundle] loadNibNamed:@"VideoEndView" owner:self options:nil] lastObject];
         
         self.frame=frame;//这个必须要设置，根据不同平台设置View的大小；
