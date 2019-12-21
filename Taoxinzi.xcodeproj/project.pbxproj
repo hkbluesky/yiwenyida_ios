@@ -39,6 +39,8 @@
 		2E7A36E41E03A876005231BE /* JrmfWalletKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A36DE1E03A876005231BE /* JrmfWalletKit.framework */; };
 		2E7A36E51E03A876005231BE /* JYangToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A36DF1E03A876005231BE /* JYangToolKit.framework */; };
 		2E7A36E61E03A876005231BE /* WalletResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E7A36E01E03A876005231BE /* WalletResource.bundle */; };
+		44B5735E23AD96BC00E11BB4 /* AlibabaAuthSDK in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5735D23AD96BB00E11BB4 /* AlibabaAuthSDK */; };
+		44B5736023AD973700E11BB4 /* AlibabaAuthSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5735F23AD973700E11BB4 /* AlibabaAuthSDK.framework */; };
 		466684241B5DEA10000B7504 /* RCDSettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 466684231B5DEA10000B7504 /* RCDSettingBaseViewController.m */; };
 		466684271B5DEA5B000B7504 /* RCDConversationSettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 466684261B5DEA5B000B7504 /* RCDConversationSettingBaseViewController.m */; };
 		4666842A1B5DEC04000B7504 /* RCDConversationSettingClearMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 466684291B5DEC04000B7504 /* RCDConversationSettingClearMessageCell.m */; };
@@ -374,6 +376,8 @@
 		2E7A36DE1E03A876005231BE /* JrmfWalletKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JrmfWalletKit.framework; sourceTree = "<group>"; };
 		2E7A36DF1E03A876005231BE /* JYangToolKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JYangToolKit.framework; sourceTree = "<group>"; };
 		2E7A36E01E03A876005231BE /* WalletResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WalletResource.bundle; sourceTree = "<group>"; };
+		44B5735D23AD96BB00E11BB4 /* AlibabaAuthSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AlibabaAuthSDK; sourceTree = "<group>"; };
+		44B5735F23AD973700E11BB4 /* AlibabaAuthSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlibabaAuthSDK.framework; sourceTree = "<group>"; };
 		466684221B5DEA10000B7504 /* RCDSettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = RCDSettingBaseViewController.h; path = RCloudMessage/RCDSettingBaseViewController.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		466684231B5DEA10000B7504 /* RCDSettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RCDSettingBaseViewController.m; path = RCloudMessage/RCDSettingBaseViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		466684251B5DEA5B000B7504 /* RCDConversationSettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = RCDConversationSettingBaseViewController.h; path = RCloudMessage/RCDConversationSettingBaseViewController.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -975,6 +979,7 @@
 				6E1C98201F39C90C008F96D8 /* libresolv.tbd in Frameworks */,
 				E4C4E7E41A0A2F2800140067 /* CoreGraphics.framework in Frameworks */,
 				27AADC281DDC4DD800E1AE31 /* Foundation.framework in Frameworks */,
+				44B5735E23AD96BC00E11BB4 /* AlibabaAuthSDK in Frameworks */,
 				2E7A36E31E03A876005231BE /* JrmfPacketKit.framework in Frameworks */,
 				536D8CA81FA300AC003DD5B8 /* OpenMtopSDK.framework in Frameworks */,
 				536D8CA21FA300AC003DD5B8 /* SecurityGuardSDK.framework in Frameworks */,
@@ -995,6 +1000,7 @@
 				F82B55401DE03E40007392BD /* SafariServices.framework in Frameworks */,
 				536D8CA61FA300AC003DD5B8 /* AlibcTradeCommon.framework in Frameworks */,
 				F880EA791D0808B300FD5CC4 /* VideoToolbox.framework in Frameworks */,
+				44B5736023AD973700E11BB4 /* AlibabaAuthSDK.framework in Frameworks */,
 				F8AD4A5B1CAE5782006C1CBB /* CoreMotion.framework in Frameworks */,
 				E4C330FA1A0C724400E31B9A /* CoreMedia.framework in Frameworks */,
 				F8AD4A571CAE5702006C1CBB /* libicucore.tbd in Frameworks */,
@@ -1976,6 +1982,7 @@
 		E4C4E7E71A0A309100140067 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44B5735F23AD973700E11BB4 /* AlibabaAuthSDK.framework */,
 				534D20752047E29E00E4CEB9 /* AlipaySDK.bundle */,
 				534D20762047E2A000E4CEB9 /* AlipaySDK.framework */,
 				534D2027204539AC00E4CEB9 /* RongCallKit */,
@@ -2044,6 +2051,7 @@
 		E4D40F1F1A031F460045097C = {
 			isa = PBXGroup;
 			children = (
+				44B5735D23AD96BB00E11BB4 /* AlibabaAuthSDK */,
 				A6447A351B1DC0F400EA2CEE /* RCWatchKitCommon */,
 				536D8CB71FA30DB7003DD5B8 /* SealTalk.entitlements */,
 				536D8C841FA300AB003DD5B8 /* AlibcTradeSDK */,
@@ -2894,6 +2902,7 @@
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/bin",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/framework",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/bin_tmp",
+					"$(PROJECT_DIR)",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
@@ -3016,6 +3025,7 @@
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/bin",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/framework",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/bin_tmp",
+					"$(PROJECT_DIR)",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
@@ -3204,6 +3214,7 @@
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/bin",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/framework",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/bin_tmp",
+					"$(PROJECT_DIR)",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
@@ -3267,6 +3278,7 @@
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/bin",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/framework",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/bin_tmp",
+					"$(PROJECT_DIR)",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
