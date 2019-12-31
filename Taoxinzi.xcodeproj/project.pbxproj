@@ -39,8 +39,10 @@
 		2E7A36E41E03A876005231BE /* JrmfWalletKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A36DE1E03A876005231BE /* JrmfWalletKit.framework */; };
 		2E7A36E51E03A876005231BE /* JYangToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A36DF1E03A876005231BE /* JYangToolKit.framework */; };
 		2E7A36E61E03A876005231BE /* WalletResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E7A36E01E03A876005231BE /* WalletResource.bundle */; };
-		44B5735E23AD96BC00E11BB4 /* AlibabaAuthSDK in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5735D23AD96BB00E11BB4 /* AlibabaAuthSDK */; };
-		44B5736023AD973700E11BB4 /* AlibabaAuthSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5735F23AD973700E11BB4 /* AlibabaAuthSDK.framework */; };
+		44B5736A23AF395500E11BB4 /* AlibabaAuthSDK in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5736223AF395400E11BB4 /* AlibabaAuthSDK */; };
+		44B5736B23AF395500E11BB4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44B5736823AF395400E11BB4 /* Info.plist */; };
+		44B5736C23AF395500E11BB4 /* AlibabaAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44B5736923AF395500E11BB4 /* AlibabaAuthSDK.bundle */; };
+		44B5736E23AF3AD800E11BB4 /* AlibabaAuthSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5736D23AF3AD800E11BB4 /* AlibabaAuthSDK.framework */; };
 		466684241B5DEA10000B7504 /* RCDSettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 466684231B5DEA10000B7504 /* RCDSettingBaseViewController.m */; };
 		466684271B5DEA5B000B7504 /* RCDConversationSettingBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 466684261B5DEA5B000B7504 /* RCDConversationSettingBaseViewController.m */; };
 		4666842A1B5DEC04000B7504 /* RCDConversationSettingClearMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 466684291B5DEC04000B7504 /* RCDConversationSettingClearMessageCell.m */; };
@@ -376,8 +378,14 @@
 		2E7A36DE1E03A876005231BE /* JrmfWalletKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JrmfWalletKit.framework; sourceTree = "<group>"; };
 		2E7A36DF1E03A876005231BE /* JYangToolKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JYangToolKit.framework; sourceTree = "<group>"; };
 		2E7A36E01E03A876005231BE /* WalletResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WalletResource.bundle; sourceTree = "<group>"; };
-		44B5735D23AD96BB00E11BB4 /* AlibabaAuthSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AlibabaAuthSDK; sourceTree = "<group>"; };
-		44B5735F23AD973700E11BB4 /* AlibabaAuthSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlibabaAuthSDK.framework; sourceTree = "<group>"; };
+		44B5736223AF395400E11BB4 /* AlibabaAuthSDK */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AlibabaAuthSDK; sourceTree = "<group>"; };
+		44B5736423AF395400E11BB4 /* ALBBSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBBSession.h; sourceTree = "<group>"; };
+		44B5736523AF395400E11BB4 /* ALBBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBBUser.h; sourceTree = "<group>"; };
+		44B5736623AF395400E11BB4 /* ALBBEnvConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBBEnvConfig.h; sourceTree = "<group>"; };
+		44B5736723AF395400E11BB4 /* albbsdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = albbsdk.h; sourceTree = "<group>"; };
+		44B5736823AF395400E11BB4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44B5736923AF395500E11BB4 /* AlibabaAuthSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlibabaAuthSDK.bundle; sourceTree = "<group>"; };
+		44B5736D23AF3AD800E11BB4 /* AlibabaAuthSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlibabaAuthSDK.framework; path = framework/AlibabaAuthSDK.framework; sourceTree = SOURCE_ROOT; };
 		466684221B5DEA10000B7504 /* RCDSettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = RCDSettingBaseViewController.h; path = RCloudMessage/RCDSettingBaseViewController.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		466684231B5DEA10000B7504 /* RCDSettingBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RCDSettingBaseViewController.m; path = RCloudMessage/RCDSettingBaseViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		466684251B5DEA5B000B7504 /* RCDConversationSettingBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = RCDConversationSettingBaseViewController.h; path = RCloudMessage/RCDConversationSettingBaseViewController.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -979,7 +987,6 @@
 				6E1C98201F39C90C008F96D8 /* libresolv.tbd in Frameworks */,
 				E4C4E7E41A0A2F2800140067 /* CoreGraphics.framework in Frameworks */,
 				27AADC281DDC4DD800E1AE31 /* Foundation.framework in Frameworks */,
-				44B5735E23AD96BC00E11BB4 /* AlibabaAuthSDK in Frameworks */,
 				2E7A36E31E03A876005231BE /* JrmfPacketKit.framework in Frameworks */,
 				536D8CA81FA300AC003DD5B8 /* OpenMtopSDK.framework in Frameworks */,
 				536D8CA21FA300AC003DD5B8 /* SecurityGuardSDK.framework in Frameworks */,
@@ -995,12 +1002,13 @@
 				536D8C9F1FA300AC003DD5B8 /* AlibabaAuthSDK.framework in Frameworks */,
 				27C42ED51DE2FD7B003E2306 /* RongiFlyKit.framework in Frameworks */,
 				E4C497211A24849E00098C8A /* CoreLocation.framework in Frameworks */,
+				44B5736A23AF395500E11BB4 /* AlibabaAuthSDK in Frameworks */,
 				A6EFAB9F1BB0ED94007E9D67 /* libz.tbd in Frameworks */,
 				536D8CAB1FA300AC003DD5B8 /* SGSecurityBody.framework in Frameworks */,
 				F82B55401DE03E40007392BD /* SafariServices.framework in Frameworks */,
 				536D8CA61FA300AC003DD5B8 /* AlibcTradeCommon.framework in Frameworks */,
 				F880EA791D0808B300FD5CC4 /* VideoToolbox.framework in Frameworks */,
-				44B5736023AD973700E11BB4 /* AlibabaAuthSDK.framework in Frameworks */,
+				44B5736E23AF3AD800E11BB4 /* AlibabaAuthSDK.framework in Frameworks */,
 				F8AD4A5B1CAE5782006C1CBB /* CoreMotion.framework in Frameworks */,
 				E4C330FA1A0C724400E31B9A /* CoreMedia.framework in Frameworks */,
 				F8AD4A571CAE5702006C1CBB /* libicucore.tbd in Frameworks */,
@@ -1168,6 +1176,28 @@
 			name = "zh-Hans.lproj";
 			path = "framework/JrmfIMLib/zh-Hans.lproj";
 			sourceTree = SOURCE_ROOT;
+		};
+		44B5736123AF395400E11BB4 /* AlibabaAuthSDK */ = {
+			isa = PBXGroup;
+			children = (
+				44B5736223AF395400E11BB4 /* AlibabaAuthSDK */,
+				44B5736323AF395400E11BB4 /* Headers */,
+				44B5736823AF395400E11BB4 /* Info.plist */,
+				44B5736923AF395500E11BB4 /* AlibabaAuthSDK.bundle */,
+			);
+			path = AlibabaAuthSDK;
+			sourceTree = "<group>";
+		};
+		44B5736323AF395400E11BB4 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				44B5736423AF395400E11BB4 /* ALBBSession.h */,
+				44B5736523AF395400E11BB4 /* ALBBUser.h */,
+				44B5736623AF395400E11BB4 /* ALBBEnvConfig.h */,
+				44B5736723AF395400E11BB4 /* albbsdk.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
 		};
 		46A831B81AC014B2001A533F /* FindPsw */ = {
 			isa = PBXGroup;
@@ -1982,7 +2012,7 @@
 		E4C4E7E71A0A309100140067 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				44B5735F23AD973700E11BB4 /* AlibabaAuthSDK.framework */,
+				44B5736D23AF3AD800E11BB4 /* AlibabaAuthSDK.framework */,
 				534D20752047E29E00E4CEB9 /* AlipaySDK.bundle */,
 				534D20762047E2A000E4CEB9 /* AlipaySDK.framework */,
 				534D2027204539AC00E4CEB9 /* RongCallKit */,
@@ -2051,7 +2081,7 @@
 		E4D40F1F1A031F460045097C = {
 			isa = PBXGroup;
 			children = (
-				44B5735D23AD96BB00E11BB4 /* AlibabaAuthSDK */,
+				44B5736123AF395400E11BB4 /* AlibabaAuthSDK */,
 				A6447A351B1DC0F400EA2CEE /* RCWatchKitCommon */,
 				536D8CB71FA30DB7003DD5B8 /* SealTalk.entitlements */,
 				536D8C841FA300AB003DD5B8 /* AlibcTradeSDK */,
@@ -2459,6 +2489,7 @@
 				536D8C831FA30086003DD5B8 /* yw_1222.jpg in Resources */,
 				8C55EB511B2A8CE5004285F4 /* Emoji.plist in Resources */,
 				536D8C9A1FA300AC003DD5B8 /* AlibabaAuthSDK.bundle in Resources */,
+				44B5736B23AF395500E11BB4 /* Info.plist in Resources */,
 				E42A2E5A1AAEE76800F4C3AB /* Main.storyboard in Resources */,
 				5111B07D1AE6A11A00317E71 /* RongCloud.bundle in Resources */,
 				536D8C9D1FA300AC003DD5B8 /* NBResource.bundle in Resources */,
@@ -2466,6 +2497,7 @@
 				A6CF8A351BD4CB6E00F3EA1A /* RCConfig.plist in Resources */,
 				E4BFAE251A121839007165B1 /* Images.xcassets in Resources */,
 				5367B8B020723A6A008482FC /* appInfo.storyboard in Resources */,
+				44B5736C23AF395500E11BB4 /* AlibabaAuthSDK.bundle in Resources */,
 				534D206B204539AD00E4CEB9 /* Info.plist in Resources */,
 				534D207C204E7D2B00E4CEB9 /* VideoEndView.xib in Resources */,
 				510624851AD63A9E00348452 /* RongCloudKit.strings in Resources */,
@@ -2917,6 +2949,7 @@
 					"$(PROJECT_DIR)/RongCloudTests/OpenSDK1.8.0",
 					"$(PROJECT_DIR)/RCWatchKitCommon/ios-rongcallkit/framework",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/framework",
+					"$(PROJECT_DIR)/AlibabaAuthSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
@@ -3040,6 +3073,7 @@
 					"$(PROJECT_DIR)/RongCloudTests/OpenSDK1.8.0",
 					"$(PROJECT_DIR)/RCWatchKitCommon/ios-rongcallkit/framework",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/framework",
+					"$(PROJECT_DIR)/AlibabaAuthSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
@@ -3229,6 +3263,7 @@
 					"$(PROJECT_DIR)/RongCloudTests/OpenSDK1.8.0",
 					"$(PROJECT_DIR)/RCWatchKitCommon/ios-rongcallkit/framework",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/framework",
+					"$(PROJECT_DIR)/AlibabaAuthSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
@@ -3293,6 +3328,7 @@
 					"$(PROJECT_DIR)/RongCloudTests/OpenSDK1.8.0",
 					"$(PROJECT_DIR)/RCWatchKitCommon/ios-rongcallkit/framework",
 					"$(PROJECT_DIR)/RongCloudTests/ios-rongcallkit/framework",
+					"$(PROJECT_DIR)/AlibabaAuthSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
